@@ -89,7 +89,7 @@ amap.on('load', function() {
         "source-layer": "LA_2year_changing_cluster_all-0acyz3",
         "paint": {
             "fill-outline-color": "rgba(0,0,0,1)",
-            "fill-color": "rgba(0,0,0,0.1)"
+            "fill-color": "rgba(0,0,0,0.5)"
         }
     }); 
     
