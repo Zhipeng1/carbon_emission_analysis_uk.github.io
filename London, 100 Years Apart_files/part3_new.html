@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!-- saved from url=(0060)https://casa-group10-project.appspot.com/industry/part3.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>London Employment Rate by Industry</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <script src="./mapbox-gl.js.下载"></script>
+    <script src="./highcharts.js.下载"></script>
+    <script src="./exporting.js.下载"></script>
+    <script src="./export-data.js.下载"></script>
+    <link href="./mapbox-gl.css" rel="stylesheet">
+    <link href="./icon" rel="stylesheet">
+    <script src="./jquery.min.js.下载"></script>
+    <script src="./chart.min.js.下载"></script>
+    <script src="./chartjs-plugin-datalabels"></script>
+
+
+
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="./materialize.min.css" media="screen,projection">
+    <link href="./css(1)" rel="stylesheet">
+    <script type="text/javascript" src="./materialize.min.js.下载"></script>
+
+
+
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
+<style type="text/css">/* Chart.js */
+@keyframes chartjs-render-animation{from{opacity:.99}to{opacity:1}}.chartjs-render-monitor{animation:chartjs-render-animation 1ms}.chartjs-size-monitor,.chartjs-size-monitor-expand,.chartjs-size-monitor-shrink{position:absolute;direction:ltr;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1}.chartjs-size-monitor-expand>div{position:absolute;width:1000000px;height:1000000px;left:0;top:0}.chartjs-size-monitor-shrink>div{position:absolute;width:200%;height:200%;left:0;top:0}</style></head>
+
+<body>
+    <div id="a" class="map mapboxgl-map"><div class="mapboxgl-canary" style="visibility: hidden;"></div><div class="mapboxgl-canvas-container mapboxgl-interactive mapboxgl-touch-drag-pan mapboxgl-touch-zoom-rotate"><canvas class="mapboxgl-canvas" tabindex="0" aria-label="Map" width="960" height="832" style="position: absolute; width: 768px; height: 666px;"></canvas></div><div class="mapboxgl-control-container"><div class="mapboxgl-ctrl-top-left"></div><div class="mapboxgl-ctrl-top-right"></div><div class="mapboxgl-ctrl-bottom-left"><div class="mapboxgl-ctrl" style="display: block;"><a class="mapboxgl-ctrl-logo" target="_blank" rel="noopener" href="https://www.mapbox.com/" aria-label="Mapbox logo"></a></div></div><div class="mapboxgl-ctrl-bottom-right"><div class="mapboxgl-ctrl mapboxgl-ctrl-attrib"><div class="mapboxgl-ctrl-attrib-inner"><a href="https://www.mapbox.com/about/maps/" target="_blank" title="Mapbox" aria-label="Mapbox" role="listitem">© Mapbox</a> <a href="https://www.openstreetmap.org/about/" target="_blank" title="OpenStreetMap" aria-label="OpenStreetMap" role="listitem">© OpenStreetMap</a> <a class="mapbox-improve-map" href="https://apps.mapbox.com/feedback/?owner=ucfndji&amp;id=cjvruvrtu0tvz1coebat7uirx&amp;access_token=pk.eyJ1IjoidWNmbmRqaSIsImEiOiJjanF6M3VjN2owOWdnNDJyemJwaTg2eWRnIn0.zGjL45699optNTcU_lAbBA" target="_blank" title="Improve this map" aria-label="Improve this map" role="listitem" rel="noopener">Improve this map</a></div></div></div></div></div>
+    <div id="b" class="map mapboxgl-map"><div class="mapboxgl-canary" style="visibility: hidden;"></div><div class="mapboxgl-canvas-container mapboxgl-interactive mapboxgl-touch-drag-pan mapboxgl-touch-zoom-rotate"><canvas class="mapboxgl-canvas" tabindex="0" aria-label="Map" width="960" height="832" style="position: absolute; width: 768px; height: 666px;"></canvas></div><div class="mapboxgl-control-container"><div class="mapboxgl-ctrl-top-left"></div><div class="mapboxgl-ctrl-top-right"></div><div class="mapboxgl-ctrl-bottom-left"><div class="mapboxgl-ctrl" style="display: block;"><a class="mapboxgl-ctrl-logo" target="_blank" rel="noopener" href="https://www.mapbox.com/" aria-label="Mapbox logo"></a></div></div><div class="mapboxgl-ctrl-bottom-right"><div class="mapboxgl-ctrl mapboxgl-ctrl-attrib"><div class="mapboxgl-ctrl-attrib-inner"><a href="https://www.mapbox.com/about/maps/" target="_blank" title="Mapbox" aria-label="Mapbox" role="listitem">© Mapbox</a> <a href="https://www.openstreetmap.org/about/" target="_blank" title="OpenStreetMap" aria-label="OpenStreetMap" role="listitem">© OpenStreetMap</a> <a class="mapbox-improve-map" href="https://apps.mapbox.com/feedback/?owner=ucfndji&amp;id=cjvrviml40uek1cs8o57la83a&amp;access_token=pk.eyJ1IjoidWNmbmRqaSIsImEiOiJjanF6M3VjN2owOWdnNDJyemJwaTg2eWRnIn0.zGjL45699optNTcU_lAbBA" target="_blank" title="Improve this map" aria-label="Improve this map" role="listitem" rel="noopener">Improve this map</a></div></div></div></div></div>
+    <div id="divider"></div>
+    
+    <div id="title-past">
+        <h2>CO2 emission pattern cluster (2005) </h2>
+    </div>
+    <div id="title-current">
+        <h2>CO2 emission pattern cluster (2019)</h2>
+    </div>
+    <!--LEGEND & INFO OVERLAY-->
+    <div class="session">
+      <h2>Cluster Category</h2>
+
+      <div class="row colors">
+      </div>
+      <div class="row labels">
+        <div class="label">0</div>
+          <div class="label"></div>
+        <div class="label">1</div>
+          <div class="label"></div>
+          <div class="label"></div>
+        <div class="label">2</div>
+        
+      </div>
+    </div>
+    <div class="map-overlay" id="map-overlay1"></div>
+    <div class="map-overlay" id="map-overlay2"></div>
+    <div class="map-overlay" id="menu">
+        <div class="select-wrapper"><input class="select-dropdown dropdown-trigger" type="text" readonly="true" data-target="select-options-d5a94a7e-0dbb-0ca6-a591-477c926f74e1"><ul id="select-options-d5a94a7e-0dbb-0ca6-a591-477c926f74e1" class="dropdown-content select-dropdown" tabindex="0"><li id="select-options-d5a94a7e-0dbb-0ca6-a591-477c926f74e10" tabindex="0" class="selected"><span>Employed</span></li><li id="select-options-d5a94a7e-0dbb-0ca6-a591-477c926f74e11" tabindex="0"><span>Agriculture Forestry and Fishing</span></li><li id="select-options-d5a94a7e-0dbb-0ca6-a591-477c926f74e12" tabindex="0"><span>Energy and Water</span></li><li id="select-options-d5a94a7e-0dbb-0ca6-a591-477c926f74e13" tabindex="0"><span>Mining and Manufacturing</span></li><li id="select-options-d5a94a7e-0dbb-0ca6-a591-477c926f74e14" tabindex="0"><span>Distribution and Catering</span></li><li id="select-options-d5a94a7e-0dbb-0ca6-a591-477c926f74e15" tabindex="0"><span>Transport and Communications</span></li><li id="select-options-d5a94a7e-0dbb-0ca6-a591-477c926f74e16" tabindex="0"><span>Banking and Finance</span></li><li id="select-options-d5a94a7e-0dbb-0ca6-a591-477c926f74e17" tabindex="0"><span>Other Services</span></li></ul><svg class="caret" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg><select id="slideselect" tabindex="-1">
+                <option value="1" selected="">Employed</option>
+                <option value="2">Agriculture Forestry and Fishing</option>
+                <option value="3">Energy and Water</option>
+                <option value="4">Mining and Manufacturing</option>
+                <option value="5">Distribution and Catering</option>
+                <option value="6">Transport and Communications</option>
+                <option value="7">Banking and Finance</option>
+                <option value="8">Other Services</option>
+
+        </select></div>
+
+    </div>
+    
+    <!-- <div id="container1" style="position: absolute; top: 15px; margin-top: 20px;
+    left: 10px; min-width: 400px; height: 200px; max-width: 400px; border-radius: 3px;margin: 0 auto; background-color:white;">
+        <canvas id="subchart1" height="250" width="500" style="display: block; height: 200px; width: 400px;"></canvas>
+    </div>
+    <div id="container2" style="position: absolute; top: 15px; margin-top: 20px;
+    right: 10px; min-width: 400px; height: 200px; max-width: 400px; border-radius: 3px;margin: 0 auto; background-color:white;">
+        <canvas id="subchart2" height="250" width="500" style="display: block; height: 200px; width: 400px;"></canvas> -->
+    
+    </div>
+    <link href="./part3.css" rel="stylesheet">
+    <script src="./part3.js.下载"></script>
+    <script src="./part3_new.js"></script>
+
+
+    
+
+
+</body></html>
