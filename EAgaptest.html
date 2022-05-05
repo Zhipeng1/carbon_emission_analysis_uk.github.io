@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<!-- saved from url=(0069)https://casa-group10-project.appspot.com/economic_activity/EAgap.html -->
+<html style=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>EAgap</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <script src="./EAgap_files/mapbox-gl.js.下载"></script>
+    <link href="./EAgap_files/mapbox-gl.css" rel="stylesheet">
+    <link href="./EAgap_files/css" rel="stylesheet">
+    <link href="./EAgap_files/icon" rel="stylesheet">
+    <script src="./EAgap_files/jquery.min.js.下载"></script>
+
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="./EAgap_files/materialize.min.css" media="screen,projection">
+    <link href="./EAgap_files/css" rel="stylesheet">
+    <script type="text/javascript" src="./EAgap_files/materialize.min.js.下载"></script>
+
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
+<style>
+
+body {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    font-family: 'Titillium Web', sans-serif !important;
+}
+
+
+
+
+
+.map-overlay {
+    position: absolute;
+    overflow: visible;
+    border-radius: 3px;
+    z-index: 4;
+}
+
+
+
+#map-overlay1 {
+    font: 16px/25px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    background-color: #fff;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.10);
+    border-radius: 3px;
+    width: 20%;
+    top: 50%;
+    margin-bottom: 30px;
+    left: 10px;
+    padding: 10px;
+    display: none;
+}
+    
+#legend {
+    font-family: 'Titillium Web', sans-serif !important;
+
+    font: 12px/25px;
+    bottom: 40px;
+    right: 20px;
+    margin-bottom: 50px;
+    margin-right: 30px;
+    width: 200px;
+    height: 150px;
+    line-height: 13px;
+    color: white;
+}
+
+
+
+.legend-key {
+    display: inline-block;
+    width: 2vw;
+    height: 1vw;
+    margin-right: 8px;
+    margin-top: 10px;
+}
+
+.plegend {
+    font-size: 1vw;
+    margin: 0;
+}
+
+
+h2 {
+    font-family: 'Titillium Web', sans-serif !important;
+    font-size: 2.3vw;
+    color: black;
+    font-weight: normal;
+    background-color: rgba(255,255,255,0.5);
+    padding: 5px 10px;}
+
+#menu { 
+        background: white;
+        position: absolute;
+        z-index: 1;
+        bottom: 10px;
+        margin-bottom: 30px;
+        margin-right: 10px;
+        left: 10px;
+        border-radius: 3px;
+        width: 350px;
+        border: 1px solid rgba(0,0,0,0.4);
+        font-size: 10px;
+        padding: 0 10px;
+    }
+
+    #menu a {  
+        color: #404040;
+        display: block;
+        margin: 0;
+        padding: 0;
+        padding: 6px;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(0,0,0,0.25);
+        text-align: center;
+    } 
+
+    #menu a.active {
+        background-color: rgba(0, 0, 0, 0.6);
+        color: white;
+        padding: 6px;
+     }
+
+
+</style></head>
+
+    
+  
+    
+<body>
+    <script src="https://cdn.plot.ly/plotly-1.2.0.min.js"></script>
+
+    <div id="map" class="mapboxgl-map"><div class="mapboxgl-canary" style="visibility: hidden;"></div><div class="mapboxgl-canvas-container mapboxgl-interactive mapboxgl-touch-drag-pan mapboxgl-touch-zoom-rotate"><canvas class="mapboxgl-canvas" tabindex="0" aria-label="Map" width="1920" height="832" style="position: absolute; width: 1536px; height: 666px; cursor: pointer;"></canvas></div><div class="mapboxgl-control-container"><div class="mapboxgl-ctrl-top-left"></div><div class="mapboxgl-ctrl-top-right"></div><div class="mapboxgl-ctrl-bottom-left"><div class="mapboxgl-ctrl" style="display: block;"><a class="mapboxgl-ctrl-logo" target="_blank" rel="noopener" href="https://www.mapbox.com/" aria-label="Mapbox logo"></a></div></div><div class="mapboxgl-ctrl-bottom-right"><div class="mapboxgl-ctrl mapboxgl-ctrl-attrib"><div class="mapboxgl-ctrl-attrib-inner"><a href="https://www.mapbox.com/about/maps/" target="_blank" title="Mapbox" aria-label="Mapbox" role="listitem">© Mapbox</a> <a href="https://www.openstreetmap.org/about/" target="_blank" title="OpenStreetMap" aria-label="OpenStreetMap" role="listitem">© OpenStreetMap</a> <a class="mapbox-improve-map" href="https://apps.mapbox.com/feedback/?owner=zsm014&amp;id=cjvwi5eff53mu1cobh4xub68n&amp;access_token=pk.eyJ1IjoienNtMDE0IiwiYSI6ImNqdDFza3dhdjBobjQ0NHA3YndnNWs1dmQifQ.6l_y5N1P3Uk6Y07K-9_Irw" target="_blank" title="Improve this map" aria-label="Improve this map" role="listitem" rel="noopener">Improve this map</a></div></div></div></div><div class="mapboxgl-popup mapboxgl-popup-anchor-bottom" style="max-width: 240px; transform: translate(-50%, -100%) translate(736px, 502px);"><div class="mapboxgl-popup-tip"></div><div class="mapboxgl-popup-content">Sutton</div></div></div>
+     <!--LEGEND & INFO OVERLAY-->
+    <div class="map-overlay top">
+    <div class="map-overlay-inner" style="margin-left:20px;">
+        <h2>CO2 Emission decrease from 2005 to 2019</h2>
+    </div>
+</div>
+    <div class="map-overlay" id="legend">
+        <div class="plegend"> CO2 emission decrease (%) <br></div>
+        <div>
+            <span class="legend-key" style="background-color: rgb(255, 0, 0);"></span>
+            <span class="plegend">10</span></div>
+        <div>
+            <span class="legend-key" style="background-color: rgb(255, 242, 0);"></span>
+            <span class="plegend">9</span></div>
+        <div>
+            <span class="legend-key" style="background-color: rgb(30, 150, 0);"></span>
+            <span class="plegend">7.2</span></div>
+        <div>
+            <span class="legend-key" style="background-color: rgb(0, 145, 255);"></span>
+            <span class="plegend">4.2</span></div>
+    </div>
+        
+    <div class="map-overlay" id="map-overlay1" style="display: block;"><strong>Area: Sutton</strong><div>All gender gap: 0</div><div>Female gap: 0</div><div>Male gap: 0</div></div>
+    <div class="map-overlay" id="menu">
+        <div class="select-wrapper"><input class="select-dropdown dropdown-trigger" type="text" readonly="true" data-target="select-options-0831e0a7-1c6a-a26e-11e2-ffd42c9e8753"><ul id="select-options-0831e0a7-1c6a-a26e-11e2-ffd42c9e8753" class="dropdown-content select-dropdown" tabindex="0"><li id="select-options-0831e0a7-1c6a-a26e-11e2-ffd42c9e87530" tabindex="0" class="selected"><span>All Gender Gap</span></li><li id="select-options-0831e0a7-1c6a-a26e-11e2-ffd42c9e87531" tabindex="0"><span>Female Gap</span></li><li id="select-options-0831e0a7-1c6a-a26e-11e2-ffd42c9e87532" tabindex="0"><span>Male Gap</span></li></ul><svg class="caret" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg><select id="slideselect" tabindex="-1">
+                <option value="1" selected="">per capita</option>
+                <option value="2">total</option>
+                <option value="3">pop</option>
+        </select></div>    
+    </div>
+    
+    <div id="tester" style="position: absolute; top: 30px; margin-top: 50px;
+    right: 100px; min-width: 400px; height: 250px; max-width: 400px; border-radius: 3px;margin: 0 auto; background-color:white;">
+        <canvas id="subchart2" height="300" width="900" style="display: block; height: 250px; width: 500px;"></canvas>
+    
+    </div>
+
+    
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoiemhpcGVuZzIwMjEiLCJhIjoiY2t2cm1sN3EwMnYxNTJvdGswMXVpcWQ0NCJ9.sN1euR7JRyIFr7vU7j70dw';
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/zhipeng2021/cl1zbxdfn004d14jxzj0ob8it',// 'mapbox://styles/zsm014/cjvwi5eff53mu1cobh4xub68n'
+    center: [-1.1, 54.5],
+    zoom:5
+});
+
+var overlay = document.getElementById('map-overlay1');
+
+
+
+// Create a popup, but don't add it to the map yet.
+var popup = new mapboxgl.Popup({
+    closeButton: false
+});
+
+// var layers = ['10', '9', '7.2'];
+// var colors = ['#ff0000', '#fff200', '#1e9600'];
+//     //create legend
+//     for (i = 0; i < layers.length; i++) {
+//         var layer = layers[i];
+//         var color = colors[i];
+//         var item = document.createElement('div');
+//         var key = document.createElement('span');
+//         key.className = 'legend-key';
+//         key.style.backgroundColor = color;
+
+//         var value = document.createElement('span');
+//         value.innerHTML = layer;
+//         value.className = 'plegend';
+
+//         item.appendChild(key);
+//         item.appendChild(value);
+//         legend.appendChild(item);
+//     }
+
+
+var toggleableLayerIds = [ 'per capita','total','pop'];
+
+
+var toggleableLayerIdDict = 
+{
+    1: 'per capita',
+    2:'total',
+    3:'pop', 
+};    
+
+
+
+map.on('load', function() {
+    map.addSource('gapmap', {
+        "type": "vector",
+        "url": "mapbox://zhipeng2021.akluqkb0"//    mapbox://zsm014.5f72rm2r
+    });
+    
+    map.addLayer({
+        "id": "gapmap",
+        "type": "fill",
+        "source": "gapmap",
+        "source-layer": "LA_2yeartotal_changingrate_SO-8ncwrc",
+        "paint": {
+            "fill-outline-color": "rgba(0,0,0,1)",
+            "fill-color": "rgba(0,0,0,0.3)"
+        }
+    }); 
+    
+    map.addLayer({
+        "id": "highlighted",
+        "type": "line",
+        "source": "gapmap",
+        "source-layer": "LA_2yeartotal_changingrate_SO-8ncwrc",
+        "paint": {   
+            "line-color": "white",
+            "line-opacity": 1,
+            "line-width": 2
+        },
+        "filter": ["in", "LAD21NM", ""]
+    });
+
+    var newKey = 1;
+    var onLayer = toggleableLayerIdDict[newKey];
+    var offList = Object.values(toggleableLayerIdDict).filter((e)=>{return e!=onLayer});
+
+    offList.forEach((e)=>{
+        map.setLayoutProperty(e, 'visibility', 'none');
+    })
+
+    map.setLayoutProperty(onLayer, 'visibility', 'visible');    
+ 
+    map.on('mousemove', 'gapmap', function(e) {
+        // Change the cursor style as a UI indicator.
+        map.getCanvas().style.cursor = 'pointer';
+        var feature = e.features[0];
+        overlay.innerHTML = '';
+
+        var title = document.createElement('strong');
+        title.textContent = 'Area: ' + feature.properties.LAD21NM;
+
+        var gap = document.createElement('div');
+        gap.textContent = 'CO2 emission decrease (%): ' + feature.properties.Decline_ra;
+        var gapf = document.createElement('div');
+        gapf.textContent = 'population: ' + feature.properties.Population;
+        //var gapm = document.createElement('div');
+        //gapm.textContent = 'Male gap: ' + feature.properties.gapm;
+       
+        
+        overlay.appendChild(title);
+        overlay.appendChild(gap);
+        overlay.appendChild(gapf);
+        //overlay.appendChild(gapm);
+        overlay.style.display = 'block';
+
+        // Add features that share the same county name to the highlighted layer.
+        map.setFilter('highlighted', ['in', 'LAD21NM', feature.properties.LAD21NM]);
+
+        // Display a popup with the name of the county
+       popup.setLngLat(e.lngLat)
+            .setText(feature.properties.LAD21NM)
+            .addTo(map);
+    });
+
+    map.on('mouseleave', 'gapmap', function() {
+        map.getCanvas().style.cursor = '';
+        popup.remove();
+        map.setFilter('highlighted', ['in', 'name', '']);
+        overlay.style.display = 'none';
+    });
+});    
+
+$(document).ready(function(){
+    $('#slideselect').formSelect();
+});
+
+$("#slideselect").on('change', function() {
+    var newKey = $(this).val()
+    var onLayer = toggleableLayerIdDict[newKey];
+    var offList = Object.values(toggleableLayerIdDict).filter((e)=>{return e!=onLayer});
+
+    offList.forEach((e)=>{
+        map.setLayoutProperty(e, 'visibility', 'none');
+    })
+
+    map.setLayoutProperty(onLayer, 'visibility', 'visible');
+})
+
+
+</script>
+
+
+
+<script>
+    var TESTER = document.getElementById('tester');
+  
+    var trace1 = {
+        type: 'scatter',
+        x: [2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019],
+        y: [34252.38338,33978.96937,32989.75505,32420.74177,29683.67176,30988.36566,28209.1817,29534.8026,28996.52257,26362.89396,25770.17993,24595.17821,23796.84584,23722.88002,22725.27647],
+        name: 'East Midlands',
+        line:{
+          color: "rgb(219,64,82)",
+          shape: 'spline'
+        }
+    }
+  
+    var trace2 = {
+        x: [2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019],
+        y: [41231.42029,41149.47782,40243.07096,39634.68796,36580.3682,38467.91678,34828.7039,36725.82655,35739.28809,32692.9728,31565.88583,29880.5556,29136.37065,28966.72438,27686.85546],
+        type: 'scatter',
+        name: 'East of England',
+        line:{
+          color: "rgb(250,153,4)",
+          shape: 'spline'
+        }
+    }
+  
+    var trace3 = {
+        x: [2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019],
+        y: [46210.27433,47347.38344,46031.95251,45917.49386,41770.22962,44168.98226,39788.4336,42645.06226,41050.12482,35789.67611,33730.09901,31326.62628,29485.91609,29262.35853,27881.86419],
+        type: 'scatter',
+        name: 'London',
+        line:{
+          color: "rgb(55,128,191)",
+          shape: 'spline'
+        }
+    }
+  
+    var trace3 = {
+        x: [2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019],
+        y: [46210.27433,47347.38344,46031.95251,45917.49386,41770.22962,44168.98226,39788.4336,42645.06226,41050.12482,35789.67611,33730.09901,31326.62628,29485.91609,29262.35853,27881.86419],
+        type: 'scatter',
+        name: 'London',
+        line:{
+          color: "rgb(2,128,91)",
+          shape: 'spline'
+        }
+    }
+    var trace4 = {
+        x: [2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019],
+        y: [19850.07525,19649.00635,18985.00554,18431.20398,16504.52493,17324.06416,15704.75495,16112.1923,15740.28072,14068.6035,13639.25151,12931.99744,12532.20924,12469.06914,11991.36992],
+        type: 'scatter',
+        name: 'North East',
+        line:{
+          color: "rgb(155,241,191)",
+          shape: 'spline'
+        }
+    }
+    var trace5 = {
+        x: [2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019],
+        y: [48527.91392,48154.15149,46883.40735,46059.37648,41441.45009,43645.59688,39110.12823,41987.5584,40454.42918,35966.9219,34556.39424,32710.62953,31479.05362,31263.41711,30273.83547],
+        type: 'scatter',
+        name: 'North West',
+        line:{
+          color: "rgb(55,128,191)",
+          shape: 'spline'
+        }
+    }
+    var trace6 = {
+        x: [2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019],
+        y: [14490.27313,14865.03879,14867.56038,14680.51946,13910.12306,14643.97003,13344.20485,13476.25695,13696.68061,12872.70537,12133.24052,11777.66756,11397.47577,11165.47775,10787.79045],
+        type: 'scatter',
+        name: 'Northern Ireland',
+        line:{
+          color: "rgb(55,128,191)",
+          shape: 'spline'
+        }
+    }
+    var trace7 = {
+        x: [2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019],
+        y: [40153.75319,40382.63521,39989.7041,39533.7531,35624.07709,37720.00459,34136.14232,35389.44236,34127.20491,30365.42888,29535.79575,27853.79125,26808.39223,26285.27212,25257.55279],
+        type: 'scatter',
+        name: 'Scotland',
+        line:{
+          color: "rgb(55,8,191)",
+          shape: 'spline'
+        }
+    }
+  
+    var trace8 = {
+        x: [2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019],
+        y: [56111.22239,56079.05639,54928.8189,54279.88914,49675.20498,52434.9932,47764.2239,49807.77785,48244.60196,43624.56232,42089.68871,39998.99637,38107.27315,37684.90464,36150.3498],
+        name: 'South East',
+        line:{
+          color: "rgb(55,28,91)",
+          shape: 'spline'
+        }
+    }
+  
+    var trace9 = {
+        x: [2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019],
+        y: [36565.57372,36385.81516,35591.8933,34672.30175,31850.16787,33096.44081,30243.14738,31681.28304,30787.00401,28213.54418,27028.37604,25795.19485,24924.77461,24619.51269,23911.4422],
+        type: 'scatter',
+        name: 'South West',
+        line:{
+          color: "rgb(5,128,1)",
+          shape: 'spline'
+        }
+    }
+  
+    var trace10 = {
+        x: [2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019],
+        y: [24333.0326,24261.34074,23402.09616,23112.97437,21110.79326,21992.3257,19838.94326,20677.55868,20189.97676,18378.92356,17626.95055,16827.91836,16344.50668,16176.7483,15477.00317],
+        type: 'scatter',
+        name: 'Wales',
+        line:{
+          color: "rgb(55,128,91)",
+          shape: 'spline'
+        }
+    }
+  
+    var trace11 = {
+        x: [2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019],
+        y: [38175.08466,38326.60918,37297.06979,36212.73386,32636.80668,34238.52031,31497.10306,32857.03306,32148.30892,29257.737,28540.62183,27211.47721,26125.26646,26017.34067,24801.82047],
+        type: 'scatter',
+        name: 'West Midlands',
+        line:{
+          color: "rgb(55,8,19)",
+          shape: 'spline'
+        }
+    }
+  
+    var trace12 = {
+        x: [2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019],
+        y: [38146.63341,37680.47188,36436.94394,35883.46312,32672.53234,34440.245,31312.1904,32763.26505,32124.1983,29023.65185,27881.58918,26529.71131,25678.43796,25708.46303,24493.65684],
+        name: 'Yorkshire and the Humber',
+        line:{
+          color: "rgb(55,12,191)",
+          shape: 'spline'
+        }
+    }
+  
+  
+  
+  
+    var layout = {
+    title: 'Total Emission Time Series Example',
+    top:10,
+    width:600,
+    height:350,
+    xaxis: {
+      title: 'Year',
+      showgrid: false,
+      zeroline: false
+    },
+    yaxis: {
+      title: 'Grand Total Emission (t)',
+      showline: false
+    },
+    legend:{
+      yref:'paper',
+      font:{
+        size:12,
+        color:'black'
+      }
+    },
+    margin: {t: 0}
+  };
+  
+    var data = [trace1,trace2,trace3,trace4,trace5,trace6,trace7,trace8,trace9,trace10,trace11,trace12];
+  
+    Plotly.plot(TESTER, data, layout);
+  </script>
+
+
+</body></html>
