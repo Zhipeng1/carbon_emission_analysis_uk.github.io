@@ -14,6 +14,10 @@
     <script src="./chart.min.js.下载"></script>
     <script src="./chartjs-plugin-datalabels"></script>
 
+    
+    <link type="text/css" rel="stylesheet" href="./style(2).css" media="screen,projection">
+
+
 
 
     <!--Import materialize.css-->
@@ -26,11 +30,65 @@
     <style>
         body { margin:0; padding:0; }
         #map { position:absolute; top:0; bottom:0; width:100%; }
+
+        #menu {
+  position: fixed;
+  top: 30%;
+  right: 5px;
+  height: 10px;
+  width: 50px;
+  z-index: 70;
+  padding: 0;
+  margin: 0;
+}
+
+#menu li {
+  display: block;
+  float: right;
+  margin: 5px;
+  width: 1.5vw;
+  height: 1.5vw;
+  background: rgba(191,191,191, 0.5);
+  border-radius: 0.75vw;
+}
+
+#menu > li > a {
+  display: block;
+  float: right;
+  width: 1.5vw;
+  height: 1.5vw;
+  background: rgba(191,191,191, 0.5);
+  border-radius: 0.75vw;
+}
+
+
+#menu li.active {
+  background: #666;
+  background: rgb(255, 0, 0);
+  color: #fff;
+}
+
+
+
     </style>
 <style type="text/css">/* Chart.js */
 @keyframes chartjs-render-animation{from{opacity:.99}to{opacity:1}}.chartjs-render-monitor{animation:chartjs-render-animation 1ms}.chartjs-size-monitor,.chartjs-size-monitor-expand,.chartjs-size-monitor-shrink{position:absolute;direction:ltr;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1}.chartjs-size-monitor-expand>div{position:absolute;width:1000000px;height:1000000px;left:0;top:0}.chartjs-size-monitor-shrink>div{position:absolute;width:200%;height:200%;left:0;top:0}</style></head>
 
 <body>
+    <ul id="menu">
+        <li data-menuanchor="page1" class=""><a href=></a></li>
+        <li data-menuanchor="page2" class=""><a href=></a></li>
+        <li data-menuanchor="page3" class=""><a href='../EAgaptest.html'></a></li>
+        <li data-menuanchor="page4" class="active"><a href='./London, 100 Years Apart_files/part3_new.html'></a></li>
+        <li data-menuanchor="page5" class=""><a href=></a></li>
+        <li data-menuanchor="page6"><a href=></a></li>
+        <li data-menuanchor="page7"><a href=></a></li>
+
+    </ul>
+
+
+
+
     <div id="a" class="map mapboxgl-map"><div class="mapboxgl-canary" style="visibility: hidden;"></div><div class="mapboxgl-canvas-container mapboxgl-interactive mapboxgl-touch-drag-pan mapboxgl-touch-zoom-rotate"><canvas class="mapboxgl-canvas" tabindex="0" aria-label="Map" width="960" height="832" style="position: absolute; width: 768px; height: 666px;"></canvas></div><div class="mapboxgl-control-container"><div class="mapboxgl-ctrl-top-left"></div><div class="mapboxgl-ctrl-top-right"></div><div class="mapboxgl-ctrl-bottom-left"><div class="mapboxgl-ctrl" style="display: block;"><a class="mapboxgl-ctrl-logo" target="_blank" rel="noopener" href="https://www.mapbox.com/" aria-label="Mapbox logo"></a></div></div><div class="mapboxgl-ctrl-bottom-right"><div class="mapboxgl-ctrl mapboxgl-ctrl-attrib"><div class="mapboxgl-ctrl-attrib-inner"><a href="https://www.mapbox.com/about/maps/" target="_blank" title="Mapbox" aria-label="Mapbox" role="listitem">© Mapbox</a> <a href="https://www.openstreetmap.org/about/" target="_blank" title="OpenStreetMap" aria-label="OpenStreetMap" role="listitem">© OpenStreetMap</a> <a class="mapbox-improve-map" href="https://apps.mapbox.com/feedback/?owner=ucfndji&amp;id=cjvruvrtu0tvz1coebat7uirx&amp;access_token=pk.eyJ1IjoidWNmbmRqaSIsImEiOiJjanF6M3VjN2owOWdnNDJyemJwaTg2eWRnIn0.zGjL45699optNTcU_lAbBA" target="_blank" title="Improve this map" aria-label="Improve this map" role="listitem" rel="noopener">Improve this map</a></div></div></div></div></div>
     <div id="b" class="map mapboxgl-map"><div class="mapboxgl-canary" style="visibility: hidden;"></div><div class="mapboxgl-canvas-container mapboxgl-interactive mapboxgl-touch-drag-pan mapboxgl-touch-zoom-rotate"><canvas class="mapboxgl-canvas" tabindex="0" aria-label="Map" width="960" height="832" style="position: absolute; width: 768px; height: 666px;"></canvas></div><div class="mapboxgl-control-container"><div class="mapboxgl-ctrl-top-left"></div><div class="mapboxgl-ctrl-top-right"></div><div class="mapboxgl-ctrl-bottom-left"><div class="mapboxgl-ctrl" style="display: block;"><a class="mapboxgl-ctrl-logo" target="_blank" rel="noopener" href="https://www.mapbox.com/" aria-label="Mapbox logo"></a></div></div><div class="mapboxgl-ctrl-bottom-right"><div class="mapboxgl-ctrl mapboxgl-ctrl-attrib"><div class="mapboxgl-ctrl-attrib-inner"><a href="https://www.mapbox.com/about/maps/" target="_blank" title="Mapbox" aria-label="Mapbox" role="listitem">© Mapbox</a> <a href="https://www.openstreetmap.org/about/" target="_blank" title="OpenStreetMap" aria-label="OpenStreetMap" role="listitem">© OpenStreetMap</a> <a class="mapbox-improve-map" href="https://apps.mapbox.com/feedback/?owner=ucfndji&amp;id=cjvrviml40uek1cs8o57la83a&amp;access_token=pk.eyJ1IjoidWNmbmRqaSIsImEiOiJjanF6M3VjN2owOWdnNDJyemJwaTg2eWRnIn0.zGjL45699optNTcU_lAbBA" target="_blank" title="Improve this map" aria-label="Improve this map" role="listitem" rel="noopener">Improve this map</a></div></div></div></div></div>
     <div id="divider"></div>
@@ -59,7 +117,7 @@
     </div>
     <div class="map-overlay" id="map-overlay1"></div>
     <div class="map-overlay" id="map-overlay2"></div>
-    <div class="map-overlay" id="menu">
+    <!-- <div class="map-overlay" id="menu">
         <div class="select-wrapper"><input class="select-dropdown dropdown-trigger" type="text" readonly="true" data-target="select-options-d5a94a7e-0dbb-0ca6-a591-477c926f74e1"><ul id="select-options-d5a94a7e-0dbb-0ca6-a591-477c926f74e1" class="dropdown-content select-dropdown" tabindex="0"><li id="select-options-d5a94a7e-0dbb-0ca6-a591-477c926f74e10" tabindex="0" class="selected"><span>Employed</span></li><li id="select-options-d5a94a7e-0dbb-0ca6-a591-477c926f74e11" tabindex="0"><span>Agriculture Forestry and Fishing</span></li><li id="select-options-d5a94a7e-0dbb-0ca6-a591-477c926f74e12" tabindex="0"><span>Energy and Water</span></li><li id="select-options-d5a94a7e-0dbb-0ca6-a591-477c926f74e13" tabindex="0"><span>Mining and Manufacturing</span></li><li id="select-options-d5a94a7e-0dbb-0ca6-a591-477c926f74e14" tabindex="0"><span>Distribution and Catering</span></li><li id="select-options-d5a94a7e-0dbb-0ca6-a591-477c926f74e15" tabindex="0"><span>Transport and Communications</span></li><li id="select-options-d5a94a7e-0dbb-0ca6-a591-477c926f74e16" tabindex="0"><span>Banking and Finance</span></li><li id="select-options-d5a94a7e-0dbb-0ca6-a591-477c926f74e17" tabindex="0"><span>Other Services</span></li></ul><svg class="caret" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg><select id="slideselect" tabindex="-1">
                 <option value="1" selected="">Employed</option>
                 <option value="2">Agriculture Forestry and Fishing</option>
@@ -72,7 +130,7 @@
 
         </select></div>
 
-    </div>
+    </div> -->
     
     <!-- <div id="container1" style="position: absolute; top: 15px; margin-top: 20px;
     left: 10px; min-width: 400px; height: 200px; max-width: 400px; border-radius: 3px;margin: 0 auto; background-color:white;">
