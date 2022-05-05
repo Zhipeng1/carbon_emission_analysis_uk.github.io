@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<!-- saved from url=(0069)https://casa-group10-project.appspot.com/economic_activity/EAgap.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>EAgap</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <script src="./mapbox-gl.js.下载"></script>
+    <link href="./mapbox-gl.css" rel="stylesheet">
+    <link href="./css(1)" rel="stylesheet">
+    <link href="./icon" rel="stylesheet">
+    <script src="./jquery.min.js.下载"></script>
+
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="./materialize.min.css" media="screen,projection">
+    <link href="./css(1)" rel="stylesheet">
+    <script type="text/javascript" src="./materialize.min.js.下载"></script>
+
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
+<style>
+
+body {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    font-family: 'Titillium Web', sans-serif !important;
+}
+
+
+
+
+
+.map-overlay {
+    position: absolute;
+    overflow: visible;
+    border-radius: 3px;
+    z-index: 4;
+}
+
+
+
+#map-overlay1 {
+    font: 16px/25px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    background-color: #fff;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.10);
+    border-radius: 3px;
+    width: 12%;
+    top: 50%;
+    margin-bottom: 30px;
+    left: 10px;
+    padding: 10px;
+    display: none;
+}
+    
+#legend {
+    font-family: 'Titillium Web', sans-serif !important;
+
+    font: 12px/25px;
+    bottom: 40px;
+    right: 20px;
+    margin-bottom: 50px;
+    margin-right: 30px;
+    width: 200px;
+    height: 150px;
+    line-height: 13px;
+    color: white;
+}
+
+
+
+.legend-key {
+    display: inline-block;
+    width: 2vw;
+    height: 1vw;
+    margin-right: 8px;
+    margin-top: 10px;
+}
+
+.plegend {
+    font-size: 1vw;
+    margin: 0;
+}
+
+
+h2 {
+    font-family: 'Titillium Web', sans-serif !important;
+    font-size: 2.3vw;
+    color: black;
+    font-weight: normal;
+    background-color: rgba(255,255,255,0.5);
+    padding: 5px 10px;}
+
+#menu { 
+        background: white;
+        position: absolute;
+        z-index: 1;
+        bottom: 10px;
+        margin-bottom: 30px;
+        margin-right: 10px;
+        left: 10px;
+        border-radius: 3px;
+        width: 350px;
+        border: 1px solid rgba(0,0,0,0.4);
+        font-size: 10px;
+        padding: 0 10px;
+    }
+
+    #menu a {  
+        color: #404040;
+        display: block;
+        margin: 0;
+        padding: 0;
+        padding: 6px;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(0,0,0,0.25);
+        text-align: center;
+    } 
+
+    #menu a.active {
+        background-color: rgba(0, 0, 0, 0.6);
+        color: white;
+        padding: 6px;
+     }
+
+
+</style></head>
+
+    
+  
+    
+<body>
+    <div id="map" class="mapboxgl-map"><div class="mapboxgl-canary" style="visibility: hidden;"></div><div class="mapboxgl-canvas-container mapboxgl-interactive mapboxgl-touch-drag-pan mapboxgl-touch-zoom-rotate"><canvas class="mapboxgl-canvas" tabindex="0" aria-label="Map" width="1920" height="832" style="position: absolute; width: 1536px; height: 666px;"></canvas></div><div class="mapboxgl-control-container"><div class="mapboxgl-ctrl-top-left"></div><div class="mapboxgl-ctrl-top-right"></div><div class="mapboxgl-ctrl-bottom-left"><div class="mapboxgl-ctrl" style="display: block;"><a class="mapboxgl-ctrl-logo" target="_blank" rel="noopener" href="https://www.mapbox.com/" aria-label="Mapbox logo"></a></div></div><div class="mapboxgl-ctrl-bottom-right"><div class="mapboxgl-ctrl mapboxgl-ctrl-attrib"><div class="mapboxgl-ctrl-attrib-inner"><a href="https://www.mapbox.com/about/maps/" target="_blank" title="Mapbox" aria-label="Mapbox" role="listitem">© Mapbox</a> <a href="https://www.openstreetmap.org/about/" target="_blank" title="OpenStreetMap" aria-label="OpenStreetMap" role="listitem">© OpenStreetMap</a> <a class="mapbox-improve-map" href="https://apps.mapbox.com/feedback/?owner=zsm014&amp;id=cjvwi5eff53mu1cobh4xub68n&amp;access_token=pk.eyJ1IjoienNtMDE0IiwiYSI6ImNqdDFza3dhdjBobjQ0NHA3YndnNWs1dmQifQ.6l_y5N1P3Uk6Y07K-9_Irw" target="_blank" title="Improve this map" aria-label="Improve this map" role="listitem" rel="noopener">Improve this map</a></div></div></div></div></div>
+     <!--LEGEND & INFO OVERLAY-->
+    <div class="map-overlay top">
+    <div class="map-overlay-inner" style="margin-left:20px;">
+        <h2>London Economic Activity Gap between 1881 and 2011</h2>
+    </div>
+</div>
+    <div class="map-overlay" id="legend">
+        <div class="plegend"> Gap <br></div>
+    <div><span class="legend-key" style="background-color: rgb(255, 0, 0);"></span><span class="plegend">Decreased</span></div><div><span class="legend-key" style="background-color: rgb(255, 242, 0);"></span><span class="plegend">Unchanged</span></div><div><span class="legend-key" style="background-color: rgb(30, 150, 0);"></span><span class="plegend">Increased</span></div></div>
+    <div class="map-overlay" id="map-overlay1"></div>
+    <div class="map-overlay" id="menu">
+        <div class="select-wrapper"><input class="select-dropdown dropdown-trigger" type="text" readonly="true" data-target="select-options-ca1b456e-4c09-8314-6af9-56ba99ce3442"><ul id="select-options-ca1b456e-4c09-8314-6af9-56ba99ce3442" class="dropdown-content select-dropdown" tabindex="0"><li id="select-options-ca1b456e-4c09-8314-6af9-56ba99ce34420" tabindex="0" class="selected"><span>All Gender Gap</span></li><li id="select-options-ca1b456e-4c09-8314-6af9-56ba99ce34421" tabindex="0"><span>Female Gap</span></li><li id="select-options-ca1b456e-4c09-8314-6af9-56ba99ce34422" tabindex="0"><span>Male Gap</span></li></ul><svg class="caret" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg><select id="slideselect" tabindex="-1">
+                <option value="1" selected="">All Gender Gap</option>
+                <option value="2">Female Gap</option>
+                <option value="3">Male Gap</option>
+        </select></div>    
+    </div>
+    
+
+    
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoienNtMDE0IiwiYSI6ImNqdDFza3dhdjBobjQ0NHA3YndnNWs1dmQifQ.6l_y5N1P3Uk6Y07K-9_Irw';
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/zsm014/cjvwi5eff53mu1cobh4xub68n',
+    center: [-0.1, 51.5],
+    zoom:9.5
+});
+
+var overlay = document.getElementById('map-overlay1');
+
+
+
+// Create a popup, but don't add it to the map yet.
+var popup = new mapboxgl.Popup({
+    closeButton: false
+});
+
+var layers = ['Decreased', 'Unchanged', 'Increased'];
+var colors = ['#ff0000', '#fff200', '#1e9600'];
+    //create legend
+    for (i = 0; i < layers.length; i++) {
+        var layer = layers[i];
+        var color = colors[i];
+        var item = document.createElement('div');
+        var key = document.createElement('span');
+        key.className = 'legend-key';
+        key.style.backgroundColor = color;
+
+        var value = document.createElement('span');
+        value.innerHTML = layer;
+        value.className = 'plegend';
+
+        item.appendChild(key);
+        item.appendChild(value);
+        legend.appendChild(item);
+    }
+
+
+var toggleableLayerIds = [ 'All gender gap','Female gap','Male gap'];
+
+
+var toggleableLayerIdDict = 
+{
+    1: 'All gender gap',
+    2:'Female gap',
+    3:'Male gap', 
+};    
+
+
+
+map.on('load', function() {
+    map.addSource('gapmap', {
+        "type": "vector",
+        "url": "mapbox://zsm014.5f72rm2r"
+    });
+    
+    map.addLayer({
+        "id": "gapmap",
+        "type": "fill",
+        "source": "gapmap",
+        "source-layer": "gapnew-6vk5b4",
+        "paint": {
+            "fill-outline-color": "rgba(0,0,0,0.1)",
+            "fill-color": "rgba(0,0,0,0.1)"
+        }
+    }); 
+    
+    map.addLayer({
+        "id": "highlighted",
+        "type": "line",
+        "source": "gapmap",
+        "source-layer": "gapnew-6vk5b4",
+        "paint": {   
+            "line-color": "white",
+            "line-opacity": 0.75,
+            "line-width": 2
+        },
+        "filter": ["in", "name", ""]
+    });
+
+    var newKey = 1;
+    var onLayer = toggleableLayerIdDict[newKey];
+    var offList = Object.values(toggleableLayerIdDict).filter((e)=>{return e!=onLayer});
+
+    offList.forEach((e)=>{
+        map.setLayoutProperty(e, 'visibility', 'none');
+    })
+
+    map.setLayoutProperty(onLayer, 'visibility', 'visible');    
+ 
+    map.on('mousemove', 'gapmap', function(e) {
+        // Change the cursor style as a UI indicator.
+        map.getCanvas().style.cursor = 'pointer';
+        var feature = e.features[0];
+        overlay.innerHTML = '';
+
+        var title = document.createElement('strong');
+        title.textContent = 'Area: ' + feature.properties.name;
+
+        var gap = document.createElement('div');
+        gap.textContent = 'All gender gap: ' + feature.properties.gap;
+        var gapf = document.createElement('div');
+        gapf.textContent = 'Female gap: ' + feature.properties.gapf;
+        var gapm = document.createElement('div');
+        gapm.textContent = 'Male gap: ' + feature.properties.gapm;
+       
+        
+        overlay.appendChild(title);
+        overlay.appendChild(gap);
+        overlay.appendChild(gapf);
+        overlay.appendChild(gapm);
+        overlay.style.display = 'block';
+
+        // Add features that share the same county name to the highlighted layer.
+        map.setFilter('highlighted', ['in', 'name', feature.properties.name]);
+
+        // Display a popup with the name of the county
+       popup.setLngLat(e.lngLat)
+            .setText(feature.properties.name)
+            .addTo(map);
+    });
+
+    map.on('mouseleave', 'gapmap', function() {
+        map.getCanvas().style.cursor = '';
+        popup.remove();
+        map.setFilter('highlighted', ['in', 'name', '']);
+        overlay.style.display = 'none';
+    });
+});    
+
+$(document).ready(function(){
+    $('#slideselect').formSelect();
+});
+
+$("#slideselect").on('change', function() {
+    var newKey = $(this).val()
+    var onLayer = toggleableLayerIdDict[newKey];
+    var offList = Object.values(toggleableLayerIdDict).filter((e)=>{return e!=onLayer});
+
+    offList.forEach((e)=>{
+        map.setLayoutProperty(e, 'visibility', 'none');
+    })
+
+    map.setLayoutProperty(onLayer, 'visibility', 'visible');
+})
+
+
+</script>
+
+
+</body></html>

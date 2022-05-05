@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<!-- saved from url=(0062)https://casa-group10-project.appspot.com/industry/summary.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Summary</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <script src="./mapbox-gl.js.下载"></script>
+    <link href="./mapbox-gl.css" rel="stylesheet">
+    <link href="./css(1)" rel="stylesheet">
+
+    <style>
+        body { margin:0; padding:0; font-family: 'Titillium Web', sans-serif;}
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+        h6 {margin-top: 0px; margin-bottom:0px;font-size:13px; font-weight:normal;}
+        p{font-size:15px;}
+    </style>
+</head>
+<body>
+    <div class="map-overlay" id="introduction">
+        <h6><b>London, 100 Years Apart</b> | Closing Remarks</h6>
+        <p>Over the past two hundred years, London made its transition from manufacturing-heavy industry distribution to service-oriented employment structure. Despite regional differences, London has become a world-renowned financial center with an increasing proportion of banking and finance in the industry.<br><br>
+        It would be easy to think that the financial sector will continue to grow in London based on the past analysis. However, the recent political development like Brexit or declining labour cost advantage of London over other European cities are unfolding a different development of the city's industry structure - pivoting to technology and digital sector. The next census in 2021 will show us what is next for this ever-evolving city.</p>
+    </div>
+
+ 
+<style>
+
+.map-overlay {
+    position: absolute;
+    overflow: visible;
+    border-radius: 3px;
+    z-index: 4;
+}
+#introduction {
+    position: absolute;
+    top: 11%;
+    left: 20px;
+    width: 400px;
+    height: 350px;
+    background-color: rgba(255,255,255,1);
+    color: black;
+    padding: 10px;
+}
+
+#marker {
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.mapboxgl-popup {
+    max-width: 200px;
+}
+
+</style>
+<div id="map" class="mapboxgl-map"><div class="mapboxgl-canary" style="visibility: hidden;"></div><div class="mapboxgl-canvas-container mapboxgl-interactive mapboxgl-touch-drag-pan mapboxgl-touch-zoom-rotate"><canvas class="mapboxgl-canvas" tabindex="0" aria-label="Map" width="1920" height="832" style="position: absolute; width: 1536px; height: 666px;"></canvas><div id="marker" class="mapboxgl-marker mapboxgl-marker-anchor-center" style="transform: translate(-50%, -50%) translate(966px, 441px);"></div></div><div class="mapboxgl-control-container"><div class="mapboxgl-ctrl-top-left"></div><div class="mapboxgl-ctrl-top-right"></div><div class="mapboxgl-ctrl-bottom-left"><div class="mapboxgl-ctrl" style="display: block;"><a class="mapboxgl-ctrl-logo" target="_blank" rel="noopener" href="https://www.mapbox.com/" aria-label="Mapbox logo"></a></div></div><div class="mapboxgl-ctrl-bottom-right"><div class="mapboxgl-ctrl mapboxgl-ctrl-attrib"><div class="mapboxgl-ctrl-attrib-inner"><a href="https://www.mapbox.com/about/maps/" target="_blank" title="Mapbox" aria-label="Mapbox" role="listitem">© Mapbox</a> <a href="https://www.openstreetmap.org/about/" target="_blank" title="OpenStreetMap" aria-label="OpenStreetMap" role="listitem">© OpenStreetMap</a> <a class="mapbox-improve-map" href="https://apps.mapbox.com/feedback/?owner=ucfndji&amp;id=cjvwib7h024zf1clbsgl5akoo&amp;access_token=pk.eyJ1IjoidWNmbmRqaSIsImEiOiJjanF6M3VjN2owOWdnNDJyemJwaTg2eWRnIn0.zGjL45699optNTcU_lAbBA" target="_blank" title="Improve this map" aria-label="Improve this map" role="listitem" rel="noopener">Improve this map</a></div></div></div></div></div>
+
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoidWNmbmRqaSIsImEiOiJjanF6M3VjN2owOWdnNDJyemJwaTg2eWRnIn0.zGjL45699optNTcU_lAbBA';
+
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/ucfndji/cjvwib7h024zf1clbsgl5akoo',
+    center: [-0.4, 51.6], 
+    zoom: 9
+});
+
+var size = 200;
+
+var pulsingDot = {
+    width: size,
+    height: size,
+    data: new Uint8Array(size * size * 4),
+
+    onAdd: function() {
+        var canvas = document.createElement('canvas');
+        canvas.width = this.width;
+        canvas.height = this.height;
+        this.context = canvas.getContext('2d');
+    },
+
+    render: function() {
+        var duration = 1000;
+        var t = (performance.now() % duration) / duration;
+
+        var radius = size / 2 * 0.3;
+        var outerRadius = size / 2 * 0.7 * t + radius;
+        var context = this.context;
+
+        // draw outer circle
+        context.clearRect(0, 0, this.width, this.height);
+        context.beginPath();
+        context.arc(this.width / 2, this.height / 2, outerRadius, 0, Math.PI * 2);
+        context.fillStyle = 'rgba(255, 200, 200,' + (1 - t) + ')';
+        context.fill();
+
+        // draw inner circle
+        context.beginPath();
+        context.arc(this.width / 2, this.height / 2, radius, 0, Math.PI * 2);
+        context.fillStyle = 'rgba(255, 100, 100, 1)';
+        context.strokeStyle = 'white';
+        context.lineWidth = 2 + 4 * (1 - t);
+        context.fill();
+        context.stroke();
+
+        // update this image's data with data from the canvas
+        this.data = context.getImageData(0, 0, this.width, this.height).data;
+
+        // keep the map repainting
+        map.triggerRepaint();
+
+        // return `true` to let the map know that the image was updated
+        return true;
+    }
+};
+
+map.on('load', function () {
+    map.addImage('pulsing-dot', pulsingDot, { pixelRatio: 2 });
+
+    map.addLayer({
+        "id": "points",
+        "type": "symbol",
+        "source": {
+            "type": "geojson",
+            "data": {
+                "type": "FeatureCollection",
+                "features": [{
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [-0.1278, 51.5074]
+                    }
+                }]
+            }
+        },
+        "layout": {
+            "icon-image": "pulsing-dot"
+        }
+    });
+});
+    
+var popup = new mapboxgl.Popup({ offset: 25 })
+    .setText('City of London - as the financial center of the world, many banking and insurance institutions have their headquarters there. What would be next for London?');
+
+// create DOM element for the marker
+var el = document.createElement('div');
+el.id = 'marker';
+
+
+// create the marker
+new mapboxgl.Marker(el)
+    .setLngLat([-0.1278, 51.5074])
+    .setPopup(popup) // sets a popup on this marker
+    .addTo(map);
+
+
+</script>
+
+
+</body></html>
