@@ -136,8 +136,11 @@ amap.on('load', function() {
             }
           ];
         
-        var layout = {paper_bgcolor:'rgba(0,0,0,0)',
-  plot_bgcolor:'rgba(0,0,0,0)',}
+        var layout = {
+            width:300,
+            height:150,
+            paper_bgcolor:'rgba(0,0,0,0)',
+            plot_bgcolor:'rgba(0,0,0,0)',}
 
 
 
