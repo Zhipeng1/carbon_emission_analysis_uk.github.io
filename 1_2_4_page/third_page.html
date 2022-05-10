@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>page 3 </title>
+<style>
+    .p1{font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;font-weight: bold;font-size:35px;text-align:left;color: aliceblue;font-weight: 250}
+    .p2{font-family: font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;font-size:27px;text-align:left;color: aliceblue;font-weight: 300}
+    .p3{font-family: "Avant Garde",Avantgarde,"Century Gothic", CenturyGothic, AppleGothicic,sans-serif;font-style:normal;font-size:15px;text-align:left;color: aliceblue;font-weight: 300}
+    p{line-height: 25px;}
+
+
+    #menu1 {
+  position: absolute ;
+  top: 30%;
+  right: 5px;
+  height: 10px;
+  width: 50px;
+  z-index: 70;
+  padding: 0;
+  margin: 0;
+}
+
+#menu1 li {
+  display: block;
+  float: right;
+  margin: 5px;
+  width: 1.5vw;
+  height: 1.5vw;
+  background: rgba(191,191,191, 0.5);
+  border-radius: 0.75vw;
+}
+
+#menu1 > li > a {
+  display: block;
+  float: right;
+  width: 1.5vw;
+  height: 1.5vw;
+  background: rgba(191,191,191, 0.5);
+  border-radius: 0.75vw;
+}
+
+
+#menu1 li.active {
+  background: #666;
+  background: rgb(255, 0, 0);
+  color: #fff;
+}
+
+</style>
+
+</head>
+
+<body >
+    <script src="https://cdn.plot.ly/plotly-1.2.0.min.js"></script>
+    
+
+    
+
+    <img src="first-page-2.png" style="width:100%; height:100%; position: absolute;left:0px;top:0px;">
+
+    <img src="dark-page.png" style="width:100%; height:100%; position: absolute;left:0px;top:0px;opacity: 0.75;">
+    
+
+    <div id="title" style="position:absolute;left:52px;top:15px;">
+        <p class="p1"> CO2 Emission change on the UK level   </p>
+    </div>
+
+    <div id="explaination1" style="width:550px; height:300px;position:absolute;left:52px;top:120px;">
+      <p class="p2">Emissions trends since 2005</p>
+      <p class="p3">When the Local Authority emissions are aggregated, estimated total CO2 emissions decreased 
+        by around 36% since 2005</p>
+      
+    </div>
+
+    <div id="explaination2" style="width:550px; height:300px;position:absolute;left:52px;top:350px;">
+      <p class="p2">Emissions by sectors</p>
+      <p class="p3">The transport sector had the highest share of end-user CO2 emissions in 63% of authorities. The domestic sector had the highest share in 26% and the industrial sector had the highest share in 10% of authorities.</p>
+    </div>
+
+    <ul id="menu1">
+        <li data-menuanchor="page1" class=""><a href=></a></li>
+        <li data-menuanchor="page2" class=""><a href=></a></li>
+        <li data-menuanchor="page3" class=""><a href='../EAgaptest.html'></a></li>
+        <li data-menuanchor="page4" class="active"><a href='./London, 100 Years Apart_files/part3_new.html'></a></li>
+        <li data-menuanchor="page5" class=""><a href=></a></li>
+        <li data-menuanchor="page6"><a href=></a></li>
+        <li data-menuanchor="page7"><a href=></a></li>
+
+    </ul>
+
+    <div id="tester" style="position: absolute; top: 100px; margin-top: 5px;
+    right: 550px; min-width: 300px; height: 350px; max-width: 200px; border-radius: 3px;margin: 0 auto; background-color:rgba(143, 102, 102, 0);">
+        <canvas id="subchart2" height="250px" width="400" style="display: block; height: 250px; width: 300px;"></canvas>
+    
+    </div>
+
+    <div id="myDiv" style="position: absolute; bottom: 0px; 
+    right: 550px; min-width: 300px; height: 380px; max-width: 300px; border-radius: 3px;margin: 0 auto; background-color:rgba(143, 102, 102, 0);">
+        <!-- <canvas id="subchart2" height="380px" width="400" style="display: block; height: 380px; width: 300px;"></canvas> -->
+    
+    </div>
+
+    
+
+    <script>
+        var TESTER = document.getElementById('tester');
+      
+        var trace1 = {
+            type: 'scatter',
+            x: [2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019],
+            y: [537129,535048,525128,511048,461778,478902,438114,458286,450038,411981,397152,373745,361598,357416,344512],
+            name: 'Total',
+            line:{
+              color: "rgb(21,254,20)",
+              shape: 'spline',
+              width:2.5
+            }
+        }
+      
+        
+      
+      
+      //paper_bgcolor='rgba(0,0,0,0)',
+      plot_bgcolor='rgba(0,0,0,0)'
+      
+        var layout = {
+        title: 'Total Emission Time Series Example',
+
+        
+        top:5,
+        width:700,
+        height:225,
+        paper_bgcolor:'rgba(0,0,0,0)',
+  plot_bgcolor:'rgba(0,0,0,0)',
+
+        font:{
+            size:12,
+            color:'white',
+          },
+        
+        xaxis: {
+          title: 'Year',
+          showgrid: false,
+          //zeroline: false,
+          //showline: true,
+          linecolor:"white",
+          gridwidth:0.5
+        },
+        yaxis: {
+          title: 'Total Emission (t)',
+          //showline: true,
+          linecolor:"white"
+         
+          
+    
+        },
+        legend:{
+          yref:'paper',
+          font:{
+            size:12,
+            color:'white'
+          }
+        },
+        margin: {t: 0}
+      };
+      
+        var data = [trace1];
+      
+        Plotly.plot(TESTER, data, layout);
+      </script>
+
+<script src="https://cdn.plot.ly/plotly-1.2.0.min.js"></script>
+
+
+      <script>
+        var trace0 = {
+            type: 'scatter',
+            x: [2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019],
+            y: [537129,535048,525128,511048,461778,478902,438114,458286,450038,411981,397152,373745,361598,357416,344512],
+            name: 'Total',
+            line:{
+              color: "rgb(21,254,20)",
+              shape: 'spline',
+              width:2.5
+            }
+        }
+
+        
+
+        var trace1 = {
+  x: ['2005', '2006', '2007','2008','2009','2010','2011','2012','2013','2014','2015','2016','2017','2018','2019'],
+  y: [152538,150086,148518,140657,120693,124090,113127,117792,117756,111208,104208,92401,89821,87657,82913],
+  name: 'Industry',
+  type: 'bar'
+};
+
+var trace2 = {
+  x: ['2005', '2006', '2007','2008','2009','2010','2011','2012','2013','2014','2015','2016','2017','2018','2019'],
+  y: [68912,70999,68149,67950,58848,62529,56500,62230,59114,49419,42505,35906,34973,34036,31238],
+  name: 'Commercial',
+  type: 'bar'
+};
+
+var trace3 = {
+  x: ['2005', '2006', '2007','2008','2009','2010','2011','2012','2013','2014','2015','2016','2017','2018','2019'],
+  y: [24650,24284,23144,23049,20214,21951,19181,21176,20064,17420,17414,15741,13279,13405,12550],
+  name: 'Public Sector',
+  type: 'bar'
+};
+var trace4 = {
+  x: ['2005', '2006', '2007','2008','2009','2010','2011','2012','2013','2014','2015','2016','2017','2018','2019'],
+  y: [153032,153198,148263,148773,135606,145329,126925,136115,132976,112524,108732,103234,97058,97104,94532],
+  name: 'Domestic',
+  type: 'bar'
+};
+var trace5 = {
+  x: ['2005', '2006', '2007','2008','2009','2010','2011','2012','2013','2014','2015','2016','2017','2018','2019'],
+  y: [136883,135998,137123,131248,127210,126013,123896,122399,121442,122996,125534,128046,128339,126597,124303],
+  name: 'Transport',
+  type: 'bar'
+};
+var trace6 = {
+  x: ['2005', '2006', '2007','2008','2009','2010','2011','2012','2013','2014','2015','2016','2017','2018','2019'],
+  y: [1113,484,-69,-629,-794,-1010,-1514,-1425,-1313,-1585,-1241,-1583,-1873,-1383,-1025],
+  name: 'LULUCF Net Emissions',
+  type: 'bar'
+};
+
+var data = [trace0,trace1, trace2,trace3, trace4,trace5, trace6];
+
+
+var layout = {
+  barmode: 'stack',
+ 
+        title: 'Total Emission Divided by Sctors',
+
+       
+        top:150,
+        width:820,
+        height:380,
+        paper_bgcolor:'rgba(0,0,0,0)',
+  plot_bgcolor:'rgba(0,0,0,0)',
+
+        font:{
+            size:12,
+            color:'white',
+          },
+        
+        xaxis: {
+          title: 'Year',
+          showgrid: false,
+          zeroline: false,
+          showline: true,
+          linecolor:"white",
+          gridwidth:0.5
+        },
+        yaxis: {
+          title: 'Total Emission (t)',
+          showline: true,
+          linecolor:"white"
+         
+          
+    
+        },
+        legend:{
+          yref:'paper',
+          font:{
+            size:12,
+            color:'white'
+          }
+        },
+        margin: {t: 0}
+      };
+
+
+Plotly.newPlot('myDiv', data, layout);
+
+
+
+
+
+  
+
+
+// function makeTrace(i) {
+//     return {
+//         y: Array.apply(null, Array(10)).map(() => Math.random()),
+//         line: { 
+//             shape: 'spline' ,
+//             color: 'red'
+//         },
+//         visible: i === 0,
+//         name: 'Data set ' + i,
+
+//     };
+// }
+
+// Plotly.plot('myDiv', data, {
+//     updatemenus: [ {
+//         y: 1,
+//         yanchor: 'top',
+//         buttons: [{
+//             method: 'restyle',
+//             args: ['visible', [true, false, false, false,false, false, false]],
+//             label: 'Data set 0'
+//         }, {
+//             method: 'restyle',
+//             args: ['visible', [false, true, false, false,false, false, false]],
+//             label: 'Data set 1'
+//         }, {
+//             method: 'restyle',
+//             args: ['visible', [false, false, true, false,false, false, false]],
+//             label: 'Data set 2'
+//         }, {
+//             method: 'restyle',
+//             args: ['visible', [false, false, false, true,false, false, false]],
+//             label: 'Data set 3'
+//         },{
+//             method: 'restyle',
+//             args: ['visible', [false, false, false, false,true,false, false]],
+//             label: 'Data set 4'
+//         },{
+//             method: 'restyle',
+//             args: ['visible', [false, false, false, false, false, true,false]],
+//             label: 'Data set 5'
+//         },{
+//             method: 'restyle',
+//             args: ['visible', [false, false, false, false,false, false, true]],
+//             label: 'Data set 6'
+//         }]
+//     }],
+// });
+
+
+
+
+
+</script>  
+
+
+
+  </body>
+
+  
+  
+  </html>
