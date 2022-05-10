@@ -157,7 +157,16 @@ amap.on('load', function() {
         yaxis: {
           title: 'Emission (t)',
           //showline: true,
-          linecolor:"white"}
+          linecolor:"white"},
+        legend:{
+          yref:'paper',
+          font:{
+            size:12,
+            color:'white'
+          }
+        },
+        margin: {t: 0}
+        }
 
 
 
@@ -318,7 +327,16 @@ bmap.on('load', function() {
         yaxis: {
           title: 'Emission (t)',
           //showline: true,
-          linecolor:"white"}
+          linecolor:"white"},
+         legend:{
+          yref:'paper',
+          font:{
+            size:12,
+            color:'white'
+          }
+        },
+        margin: {t: 0}
+        }
 
 
 
