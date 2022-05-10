@@ -140,7 +140,24 @@ amap.on('load', function() {
 //             width:300,
 //             height:150,
             paper_bgcolor:'rgba(0,0,0,0)',
-            plot_bgcolor:'rgba(0,0,0,0)',}
+            plot_bgcolor:'rgba(0,0,0,0)',
+        font:{
+            size:12,
+            color:'white',
+          },
+        
+        xaxis: {
+//           title: 'Year',
+          showgrid: false,
+          //zeroline: false,
+          //showline: true,
+          linecolor:"white",
+          gridwidth:0.5
+        },
+        yaxis: {
+          title: 'Emission (t)',
+          //showline: true,
+          linecolor:"white"}
 
 
 
@@ -284,7 +301,24 @@ bmap.on('load', function() {
 //             width:300,
 //             height:150,
             paper_bgcolor:'rgba(0,0,0,0)',
-            plot_bgcolor:'rgba(0,0,0,0)',}
+            plot_bgcolor:'rgba(0,0,0,0)',
+        font:{
+            size:12,
+            color:'white',
+          },
+        
+        xaxis: {
+//           title: 'Year',
+          showgrid: false,
+          //zeroline: false,
+          //showline: true,
+          linecolor:"white",
+          gridwidth:0.5
+        },
+        yaxis: {
+          title: 'Emission (t)',
+          //showline: true,
+          linecolor:"white"}
 
 
 
