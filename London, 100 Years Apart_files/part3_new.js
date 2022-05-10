@@ -127,6 +127,19 @@ amap.on('load', function() {
         constructi.textContent = 'LULUCF: ' + feature.properties.LULUCF;
         var distributi = document.createElement('div');
         distributi.textContent = 'Industy: ' + feature.properties.Industy;
+        
+        var data = [
+            {
+              x: ['commercial', 'domestic', 'transport','public','LULUCF','Industy'],
+              y: [feature.properties.commercial, feature.properties.domestic, feature.properties.transport,feature.properties.public,feature.properties.LULUCF,feature.properties.Industy],
+              type: 'bar'
+            }
+          ];
+
+        Plotly.newPlot('myDiv', data);
+        
+        
+        
         // var transport_ = document.createElement('div');
         // transport_.textContent = 'Transport and Communications: ' + feature.properties.transport_;
         // var banking_fi = document.createElement('div');
