@@ -135,8 +135,13 @@ amap.on('load', function() {
               type: 'bar'
             }
           ];
+        
+        var layout = {paper_bgcolor:'rgba(0,0,0,0)',
+  plot_bgcolor:'rgba(0,0,0,0)',}
 
-        Plotly.newPlot('myDiv', data);
+
+
+        Plotly.newPlot('myDiv', data,layout);
         
         
         // var transport_ = document.createElement('div');
