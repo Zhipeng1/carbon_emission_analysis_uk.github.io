@@ -311,7 +311,10 @@ bmap.on('load', function() {
             {
               x: ['commercial', 'domestic', 'transport','public','LULUCF','Industy'],
               y: [feature.properties.commercial, feature.properties.domestic, feature.properties.transport,feature.properties.public,feature.properties.LULUCF,feature.properties.Industy],
-              type: 'bar'
+              type: 'bar',
+              marker: {
+    color: 'rgb(250,124,195)'
+  }
             }
           ];
         
