@@ -137,10 +137,15 @@ amap.on('load', function() {
           ];
         
         var layout = {
-//             width:500,
-//             height:250,
-            paper_bgcolor:'rgba(0,0,0,0)',
-            plot_bgcolor:'rgba(0,0,0,0)',
+//         title: 'Total Emission Time Series Example',
+
+        
+//         top:15,
+        width:700,
+        height:225,
+        paper_bgcolor:'rgba(0,0,0,0)',
+  plot_bgcolor:'rgba(0,0,0,0)',
+
         font:{
             size:12,
             color:'white',
@@ -155,9 +160,13 @@ amap.on('load', function() {
           gridwidth:0.5
         },
         yaxis: {
-          title: 'Emission (t)',
+          title: 'CO2 Emission (t)',
           //showline: true,
-          linecolor:"white"},
+          linecolor:"white"
+         
+          
+    
+        },
         legend:{
           yref:'paper',
           font:{
@@ -166,7 +175,7 @@ amap.on('load', function() {
           }
         },
         margin: {t: 0}
-        }
+      };
 
 
 
@@ -307,10 +316,15 @@ bmap.on('load', function() {
           ];
         
         var layout = {
-//             width:300,
-//             height:150,
-            paper_bgcolor:'rgba(0,0,0,0)',
-            plot_bgcolor:'rgba(0,0,0,0)',
+//         title: 'Total Emission Time Series Example',
+
+        
+//         top:15,
+        width:700,
+        height:225,
+        paper_bgcolor:'rgba(0,0,0,0)',
+  plot_bgcolor:'rgba(0,0,0,0)',
+
         font:{
             size:12,
             color:'white',
@@ -325,10 +339,14 @@ bmap.on('load', function() {
           gridwidth:0.5
         },
         yaxis: {
-          title: 'Emission (t)',
+          title: 'CO2 Emission (t)',
           //showline: true,
-          linecolor:"white"},
-         legend:{
+          linecolor:"white"
+         
+          
+    
+        },
+        legend:{
           yref:'paper',
           font:{
             size:12,
@@ -336,7 +354,7 @@ bmap.on('load', function() {
           }
         },
         margin: {t: 0}
-        }
+      };
 
 
 
