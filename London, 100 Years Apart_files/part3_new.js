@@ -141,8 +141,8 @@ amap.on('load', function() {
 
         
 //         top:15,
-        width:500,
-        height:225,
+        width:300,
+        height:155,
         paper_bgcolor:'rgba(0,0,0,0)',
   plot_bgcolor:'rgba(0,0,0,0)',
 
@@ -320,8 +320,8 @@ bmap.on('load', function() {
 
         
 //         top:15,
-        width:700,
-        height:225,
+        width:300,
+        height:155,
         paper_bgcolor:'rgba(0,0,0,0)',
   plot_bgcolor:'rgba(0,0,0,0)',
 
