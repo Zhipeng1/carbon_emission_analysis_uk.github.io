@@ -36,11 +36,61 @@ function initViz() {
 <style>
   body { margin: 0; padding: 0; }
   #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+    
+    #menu1 {
+  position: absolute ;
+  top: 30%;
+  right: 5px;
+  height: 10px;
+  width: 50px;
+  z-index: 70;
+  padding: 0;
+  margin: 0;
+}
+
+#menu1 li {
+  display: block;
+  float: right;
+  margin: 5px;
+  width: 1.5vw;
+  height: 1.5vw;
+  background: rgba(191,191,191, 0.5);
+  border-radius: 0.75vw;
+}
+
+#menu1 > li > a {
+  display: block;
+  float: right;
+  width: 1.5vw;
+  height: 1.5vw;
+  background: rgba(191,191,191, 0.5);
+  border-radius: 0.75vw;
+}
+
+
+#menu1 li.active {
+  background: #666;
+  background: rgb(255, 0, 0);
+  color: #fff;
+}
   </style>
 
 </head>
 
 <body onload="initViz();">
+    
+    <ul id="menu1">
+        <li data-menuanchor="page1" class=""><a href='first_page.html'></a></li>
+        <li data-menuanchor="page2" class=""><a href='second_page.html'></a></li>
+        <li data-menuanchor="page3" class=""><a href='third_page.html'></a></li>
+        <li data-menuanchor="page4" class="active"><a href='region.html'></a></li>
+        <li data-menuanchor="page5" class=""><a href=></a></li>
+        <li data-menuanchor="page6" class=""><a href='../index.html'></a></li>
+        <li data-menuanchor="page7" class=""><a href='../London, 100 Years Apart_files/part3_new.html''></a></li>
+        <li data-menuanchor="page8" class=""><a href=></a></li>
+        <li data-menuanchor="page9" class=""><a href=></a></li>
+
+    </ul>
 
   <div id="map"></div>
   <script>
