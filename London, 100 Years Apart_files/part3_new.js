@@ -372,9 +372,9 @@ bmap.on('load', function() {
         overlay2.appendChild(mining_man);
         overlay2.appendChild(constructi);
         overlay2.appendChild(distributi);
-        overlay2.appendChild(transport_);
-        overlay2.appendChild(banking_fi);
-        overlay2.appendChild(other);
+//         overlay2.appendChild(transport_);
+//         overlay2.appendChild(banking_fi);
+//         overlay2.appendChild(other);
         overlay2.style.display = 'block';
 
 
