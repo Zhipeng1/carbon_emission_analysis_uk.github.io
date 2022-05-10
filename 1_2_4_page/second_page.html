@@ -8,6 +8,45 @@
     .p2{font-family: "Garamond", Serif ;font-style:normal;font-size:27px;text-align:center;color: aliceblue;font-weight: 300}
     .p3{font-family: "Avant Garde",Avantgarde,"Century Gothic", CenturyGothic, AppleGothicic,sans-serif;font-style:normal;font-size:7px;text-align:center;color: aliceblue;font-weight: 300}
     p{line-height: 25px;}
+    
+    #menu1 {
+  position: absolute ;
+  top: 30%;
+  right: 5px;
+  height: 10px;
+  width: 50px;
+  z-index: 70;
+  padding: 0;
+  margin: 0;
+}
+
+#menu1 li {
+  display: block;
+  float: right;
+  margin: 5px;
+  width: 1.5vw;
+  height: 1.5vw;
+  background: rgba(191,191,191, 0.5);
+  border-radius: 0.75vw;
+}
+
+#menu1 > li > a {
+  display: block;
+  float: right;
+  width: 1.5vw;
+  height: 1.5vw;
+  background: rgba(191,191,191, 0.5);
+  border-radius: 0.75vw;
+}
+
+
+#menu1 li.active {
+  background: #666;
+  background: rgb(255, 0, 0);
+  color: #fff;
+}
+    
+    
 </style>
 
 </head>
@@ -41,6 +80,20 @@
     <img src="icon2.png" style="width:50px;height:50px;position: absolute;left:200px;top:380px;">
     <img src="icon4.png" style="width:50px;height:50px;position: absolute;left:945px;top:200px;">
     <img src="icon3.png" style="width:50px;height:50px;position: absolute;left:1035px;top:380px;">
+
+
+    <ul id="menu1">
+        <li data-menuanchor="page1" class=""><a href='first_page.html'></a></li>
+        <li data-menuanchor="page2" class="active"><a href='second_page.html'></a></li>
+        <li data-menuanchor="page3" class=""><a href='third_page.html'></a></li>
+        <li data-menuanchor="page4" class=""><a href='region.html'></a></li>
+        <li data-menuanchor="page5" class=""><a href=></a></li>
+        <li data-menuanchor="page6" class=""><a href='../index.html'></a></li>
+        <li data-menuanchor="page7" class=""><a href='../London, 100 Years Apart_files/part3_new.html''></a></li>
+        <li data-menuanchor="page8" class=""><a href=></a></li>
+        <li data-menuanchor="page9" class=""><a href=></a></li>
+
+    </ul>
 
   
   
