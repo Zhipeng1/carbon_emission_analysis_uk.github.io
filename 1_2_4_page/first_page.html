@@ -8,11 +8,56 @@
     .p2{font-family: "Garamond", Serif ;font-style:normal;font-size:70px;text-align:center;color: aliceblue;font-weight: 300}
     .p3{font-family: "Amplitude", Sans-serif ;font-style:normal;font-size:15px;text-align:center;color: aliceblue;font-weight: 300}
     p{line-height: 10px;}
+    
+    #menu1 { 
+        background: white;
+        position: absolute;
+        z-index: 1;
+        bottom: 10px;
+        margin-bottom: 30px;
+        margin-right: 10px;
+        left: 10px;
+        border-radius: 3px;
+        width: 350px;
+        border: 1px solid rgba(0,0,0,0.4);
+        font-size: 10px;
+        padding: 0 10px;
+    }
+
+    #menu1 a {  
+        color: #404040;
+        display: block;
+        margin: 0;
+        padding: 0;
+        padding: 6px;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(0,0,0,0.25);
+        text-align: center;
+    } 
+
+    #menu1 a.active {
+        background-color: rgba(0, 0, 0, 0.6);
+        color: white;
+        padding: 6px;
+     }
 </style>
 
 </head>
 
 <body>
+    
+    <ul id="menu">
+        <li data-menuanchor="page1" class="active"><a href='first_page.html'></a></li>
+        <li data-menuanchor="page2" class=""><a href='second_page.html'></a></li>
+        <li data-menuanchor="page3" class=""><a href='third_page.html'></a></li>
+        <li data-menuanchor="page4" class=""><a href='region.html'></a></li>
+        <li data-menuanchor="page5" class=""><a href=></a></li>
+        <li data-menuanchor="page6" class=""><a href='../index.html'></a></li>
+        <li data-menuanchor="page7" class=""><a href='../London, 100 Years Apart_files/part3_new.html''></a></li>
+        <li data-menuanchor="page8" class=""><a href=></a></li>
+        <li data-menuanchor="page9" class=""><a href=></a></li>
+
+    </ul>
 
     <img src="first-page-2.png" style="width:100%; height:100%; position: absolute;left:0px;top: 0px;">
     <!-- <div id="vizContainer1" style="width:350px; height:350px;position: absolute;right:1px;top: 1px;background-color: rgba(255, 255, 255,0.0001)"></div> -->
