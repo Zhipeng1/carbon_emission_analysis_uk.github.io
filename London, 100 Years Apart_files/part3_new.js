@@ -255,29 +255,42 @@ bmap.on('load', function() {
         bmap.getCanvas().style.cursor = 'pointer';
         var feature = e.features[0];
         overlay2.innerHTML = '';
-
+        
         var title = document.createElement('strong');
         title.textContent = 'Area: ' + feature.properties.LAD21NM;
 
         var employed = document.createElement('div');
-        employed.textContent = 'Employed: ' + feature.properties.employed;
-        
+        employed.textContent = 'commercial: ' + feature.properties.commercial;
         var agri_fores = document.createElement('div');
-        agri_fores.textContent = 'Agriculture Forestry and Fishing: ' + feature.properties.agri_fores;
+        agri_fores.textContent = 'domestic: ' + feature.properties.domestic;
         var energy_wat = document.createElement('div');
-        energy_wat.textContent = 'Energy and Water: ' + feature.properties.energy_wat;
+        energy_wat.textContent = 'transport: ' + feature.properties.transport;
         var mining_man = document.createElement('div');
-        mining_man.textContent = 'Mining and Manufacturing: ' + feature.properties.mining_man;
+        mining_man.textContent = 'public: ' + feature.properties.public;
         var constructi = document.createElement('div');
-        constructi.textContent = 'Construction: ' + feature.properties.constructi;
+        constructi.textContent = 'LULUCF: ' + feature.properties.LULUCF;
         var distributi = document.createElement('div');
-        distributi.textContent = 'Distribution and Catering: ' + feature.properties.distributi;
-        var transport_ = document.createElement('div');
-        transport_.textContent = 'Transport and Communications: ' + feature.properties.transport_;
-        var banking_fi = document.createElement('div');
-        banking_fi.textContent = 'Banking and Finance: ' + feature.properties.banking_fi;
-        var other = document.createElement('div');
-        other.textContent = 'Other Services: ' + feature.properties.other;
+        distributi.textContent = 'Industy: ' + feature.properties.Industy;
+        
+        var data = [
+            {
+              x: ['commercial', 'domestic', 'transport','public','LULUCF','Industy'],
+              y: [feature.properties.commercial, feature.properties.domestic, feature.properties.transport,feature.properties.public,feature.properties.LULUCF,feature.properties.Industy],
+              type: 'bar'
+            }
+          ];
+        
+        var layout = {
+//             width:300,
+//             height:150,
+            paper_bgcolor:'rgba(0,0,0,0)',
+            plot_bgcolor:'rgba(0,0,0,0)',}
+
+
+
+        Plotly.newPlot('myDiv2', data,layout);
+
+        
         
         overlay2.appendChild(title);
         overlay2.appendChild(employed);
