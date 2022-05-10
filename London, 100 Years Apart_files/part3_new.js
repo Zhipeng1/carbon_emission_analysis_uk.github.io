@@ -137,8 +137,8 @@ amap.on('load', function() {
           ];
         
         var layout = {
-//             width:300,
-//             height:150,
+//             width:500,
+//             height:250,
             paper_bgcolor:'rgba(0,0,0,0)',
             plot_bgcolor:'rgba(0,0,0,0)',
         font:{
