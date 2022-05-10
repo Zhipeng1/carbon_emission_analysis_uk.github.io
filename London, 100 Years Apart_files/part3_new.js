@@ -128,16 +128,15 @@ amap.on('load', function() {
         var distributi = document.createElement('div');
         distributi.textContent = 'Industy: ' + feature.properties.Industy;
         
-        var data = [
-            {
-              x: ['commercial', 'domestic', 'transport','public','LULUCF','Industy'],
-              y: [feature.properties.commercial, feature.properties.domestic, feature.properties.transport,feature.properties.public,feature.properties.LULUCF,feature.properties.Industy],
-              type: 'bar'
-            }
-          ];
+//         var data = [
+//             {
+//               x: ['commercial', 'domestic', 'transport','public','LULUCF','Industy'],
+//               y: [feature.properties.commercial, feature.properties.domestic, feature.properties.transport,feature.properties.public,feature.properties.LULUCF,feature.properties.Industy],
+//               type: 'bar'
+//             }
+//           ];
 
-        Plotly.newPlot('myDiv', data);
-        
+//         Plotly.newPlot('myDiv', data);
         
         
         // var transport_ = document.createElement('div');
