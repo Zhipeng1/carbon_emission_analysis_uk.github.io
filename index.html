@@ -263,14 +263,14 @@ var toggleableLayerIdDict =
 map.on('load', function() {
     map.addSource('gapmap', {
         "type": "vector",
-        "url": "mapbox://zhipeng2021.akluqkb0"//    mapbox://zsm014.5f72rm2r
+        "url": "mapbox://zhipeng2021.7l63r51n"//    mapbox://zsm014.5f72rm2r
     });
     
     map.addLayer({
         "id": "gapmap",
         "type": "fill",
         "source": "gapmap",
-        "source-layer": "LA_2yeartotal_changingrate_SO-8ncwrc",
+        "source-layer": "LA_2year_changing_cluster_all-0acyz3",
         "paint": {
             "fill-outline-color": "rgba(0,0,0,1)",
             "fill-color": "rgba(0,0,0,0.1)"
@@ -281,7 +281,7 @@ map.on('load', function() {
         "id": "highlighted",
         "type": "line",
         "source": "gapmap",
-        "source-layer": "LA_2yeartotal_changingrate_SO-8ncwrc",
+        "source-layer": "LA_2year_changing_cluster_all-0acyz3",
         "paint": {   
             
 
