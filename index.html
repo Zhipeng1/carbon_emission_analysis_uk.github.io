@@ -197,6 +197,12 @@ h2 {
     
     </div> -->
     
+    <div id="myDiv" style="position: absolute; top: 150px; margin-top: 50px;
+    left: 50px; min-width: 400px; height: 150px; max-width: 200px; border-radius: 3px;margin: 0 auto; background-color:rgba(143, 102, 102, 0)">
+        <canvas id="subchart2" height="200" width="500" style="display: block; height: 250px; width: 500px;"></canvas>
+    
+    </div>
+    
     <div class="flourish-embed flourish-bar-chart-race" data-src="visualisation/9949971" style="position: absolute; top: 30px; margin-top: 50px;
     right: 100px;height: 150px;width: 500px; border-radius: 3px;margin: 0 auto; background-color:white;">
         <script src="https://public.flourish.studio/resources/embed.js"></script>
@@ -307,18 +313,91 @@ map.on('load', function() {
         var title = document.createElement('strong');
         title.textContent = 'Area: ' + feature.properties.LAD21NM;
 
-        var gap = document.createElement('div');
-        gap.textContent = 'CO2 emission decrease (%): ' + feature.properties.Decline_ra;
-        var gapf = document.createElement('div');
-        gapf.textContent = 'population: ' + feature.properties.Population;
-        //var gapm = document.createElement('div');
-        //gapm.textContent = 'Male gap: ' + feature.properties.gapm;
+        var employed = document.createElement('div');
+        employed.textContent = 'commercial: ' + feature.properties.commercial;
+        var agri_fores = document.createElement('div');
+        agri_fores.textContent = 'domestic: ' + feature.properties.domestic;
+        var energy_wat = document.createElement('div');
+        energy_wat.textContent = 'transport: ' + feature.properties.transport;
+        var mining_man = document.createElement('div');
+        mining_man.textContent = 'public: ' + feature.properties.public;
+        var constructi = document.createElement('div');
+        constructi.textContent = 'LULUCF: ' + feature.properties.LULUCF;
+        var distributi = document.createElement('div');
+        distributi.textContent = 'Industy: ' + feature.properties.Industy;
+
+        var data = [
+            {
+              x: ['commercial', 'domestic', 'transport','public','LULUCF','Industy'],
+              y: [feature.properties.commercial, feature.properties.domestic, feature.properties.transport,feature.properties.public,feature.properties.LULUCF,feature.properties.Industy],
+              type: 'bar',
+              marker: {
+    color: 'rgb(250,124,195)'
+  }
+            }
+          ];
+
+          var layout = {
+//         title: 'Total Emission Time Series Example',
+
+        
+//         top:15,
+        width:400,
+        height:200,
+        paper_bgcolor:'rgba(0,0,0,0)',
+  plot_bgcolor:'rgba(0,0,0,0)',
+
+        font:{
+            size:12,
+            color:'white',
+          },
+        
+        xaxis: {
+//           title: 'Year',
+          showgrid: false,
+          //zeroline: false,
+          //showline: true,
+          linecolor:"white",
+          gridwidth:0.5
+        },
+        yaxis: {
+          title: 'CO2 Emission (t)',
+          //showline: true,
+          linecolor:"white"
+         
+          
+    
+        },
+        legend:{
+          yref:'paper',
+          font:{
+            size:12,
+            color:'white'
+          }
+        },
+        margin: {t: 0}
+      };
+
+
+
+        Plotly.newPlot('myDiv', data,layout);
+
+
+
+
+
        
         
         overlay.appendChild(title);
-        overlay.appendChild(gap);
-        overlay.appendChild(gapf);
-        //overlay.appendChild(gapm);
+        overlay.appendChild(employed);
+        overlay.appendChild(agri_fores);
+        overlay.appendChild(energy_wat);
+        overlay.appendChild(mining_man);
+        overlay.appendChild(constructi);
+        overlay.appendChild(distributi);
+        // overlay1.appendChild(transport_);
+        // overlay1.appendChild(banking_fi);
+        // overlay1.appendChild(other);
         overlay.style.display = 'block';
 
         // Add features that share the same county name to the highlighted layer.
@@ -357,179 +436,6 @@ $("#slideselect").on('change', function() {
 
 </script>
 
-
-
-<script>
-    var TESTER = document.getElementById('tester');
-  
-    var trace1 = {
-        type: 'scatter',
-        x: [2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019],
-        y: [34252.38338,33978.96937,32989.75505,32420.74177,29683.67176,30988.36566,28209.1817,29534.8026,28996.52257,26362.89396,25770.17993,24595.17821,23796.84584,23722.88002,22725.27647],
-        name: 'East Midlands',
-        line:{
-          color: "rgb(219,64,82)",
-          shape: 'spline'
-        }
-    }
-  
-    var trace2 = {
-        x: [2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019],
-        y: [41231.42029,41149.47782,40243.07096,39634.68796,36580.3682,38467.91678,34828.7039,36725.82655,35739.28809,32692.9728,31565.88583,29880.5556,29136.37065,28966.72438,27686.85546],
-        type: 'scatter',
-        name: 'East of England',
-        line:{
-          color: "rgb(250,153,4)",
-          shape: 'spline'
-        }
-    }
-  
-    var trace3 = {
-        x: [2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019],
-        y: [46210.27433,47347.38344,46031.95251,45917.49386,41770.22962,44168.98226,39788.4336,42645.06226,41050.12482,35789.67611,33730.09901,31326.62628,29485.91609,29262.35853,27881.86419],
-        type: 'scatter',
-        name: 'London',
-        line:{
-          color: "rgb(55,128,191)",
-          shape: 'spline'
-        }
-    }
-  
-    var trace3 = {
-        x: [2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019],
-        y: [46210.27433,47347.38344,46031.95251,45917.49386,41770.22962,44168.98226,39788.4336,42645.06226,41050.12482,35789.67611,33730.09901,31326.62628,29485.91609,29262.35853,27881.86419],
-        type: 'scatter',
-        name: 'London',
-        line:{
-          color: "rgb(2,128,91)",
-          shape: 'spline'
-        }
-    }
-    var trace4 = {
-        x: [2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019],
-        y: [19850.07525,19649.00635,18985.00554,18431.20398,16504.52493,17324.06416,15704.75495,16112.1923,15740.28072,14068.6035,13639.25151,12931.99744,12532.20924,12469.06914,11991.36992],
-        type: 'scatter',
-        name: 'North East',
-        line:{
-          color: "rgb(155,241,191)",
-          shape: 'spline'
-        }
-    }
-    var trace5 = {
-        x: [2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019],
-        y: [48527.91392,48154.15149,46883.40735,46059.37648,41441.45009,43645.59688,39110.12823,41987.5584,40454.42918,35966.9219,34556.39424,32710.62953,31479.05362,31263.41711,30273.83547],
-        type: 'scatter',
-        name: 'North West',
-        line:{
-          color: "rgb(55,128,191)",
-          shape: 'spline'
-        }
-    }
-    var trace6 = {
-        x: [2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019],
-        y: [14490.27313,14865.03879,14867.56038,14680.51946,13910.12306,14643.97003,13344.20485,13476.25695,13696.68061,12872.70537,12133.24052,11777.66756,11397.47577,11165.47775,10787.79045],
-        type: 'scatter',
-        name: 'Northern Ireland',
-        line:{
-          color: "rgb(55,128,191)",
-          shape: 'spline'
-        }
-    }
-    var trace7 = {
-        x: [2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019],
-        y: [40153.75319,40382.63521,39989.7041,39533.7531,35624.07709,37720.00459,34136.14232,35389.44236,34127.20491,30365.42888,29535.79575,27853.79125,26808.39223,26285.27212,25257.55279],
-        type: 'scatter',
-        name: 'Scotland',
-        line:{
-          color: "rgb(55,8,191)",
-          shape: 'spline'
-        }
-    }
-  
-    var trace8 = {
-        x: [2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019],
-        y: [56111.22239,56079.05639,54928.8189,54279.88914,49675.20498,52434.9932,47764.2239,49807.77785,48244.60196,43624.56232,42089.68871,39998.99637,38107.27315,37684.90464,36150.3498],
-        name: 'South East',
-        line:{
-          color: "rgb(55,28,91)",
-          shape: 'spline'
-        }
-    }
-  
-    var trace9 = {
-        x: [2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019],
-        y: [36565.57372,36385.81516,35591.8933,34672.30175,31850.16787,33096.44081,30243.14738,31681.28304,30787.00401,28213.54418,27028.37604,25795.19485,24924.77461,24619.51269,23911.4422],
-        type: 'scatter',
-        name: 'South West',
-        line:{
-          color: "rgb(5,128,1)",
-          shape: 'spline'
-        }
-    }
-  
-    var trace10 = {
-        x: [2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019],
-        y: [24333.0326,24261.34074,23402.09616,23112.97437,21110.79326,21992.3257,19838.94326,20677.55868,20189.97676,18378.92356,17626.95055,16827.91836,16344.50668,16176.7483,15477.00317],
-        type: 'scatter',
-        name: 'Wales',
-        line:{
-          color: "rgb(55,128,91)",
-          shape: 'spline'
-        }
-    }
-  
-    var trace11 = {
-        x: [2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019],
-        y: [38175.08466,38326.60918,37297.06979,36212.73386,32636.80668,34238.52031,31497.10306,32857.03306,32148.30892,29257.737,28540.62183,27211.47721,26125.26646,26017.34067,24801.82047],
-        type: 'scatter',
-        name: 'West Midlands',
-        line:{
-          color: "rgb(55,8,19)",
-          shape: 'spline'
-        }
-    }
-  
-    var trace12 = {
-        x: [2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019],
-        y: [38146.63341,37680.47188,36436.94394,35883.46312,32672.53234,34440.245,31312.1904,32763.26505,32124.1983,29023.65185,27881.58918,26529.71131,25678.43796,25708.46303,24493.65684],
-        name: 'Yorkshire and the Humber',
-        line:{
-          color: "rgb(55,12,191)",
-          shape: 'spline'
-        }
-    }
-  
-  
-  
-  
-    var layout = {
-    title: 'Total Emission Time Series Example',
-    top:10,
-    width:600,
-    height:350,
-    xaxis: {
-      title: 'Year',
-      showgrid: false,
-      zeroline: false
-    },
-    yaxis: {
-      title: 'Grand Total Emission (t)',
-      showline: false
-    },
-    legend:{
-      yref:'paper',
-      font:{
-        size:12,
-        color:'black'
-      }
-    },
-    margin: {t: 0}
-  };
-  
-    var data = [trace1,trace2,trace3,trace4,trace5,trace6,trace7,trace8,trace9,trace10,trace11,trace12];
-  
-    Plotly.plot(TESTER, data, layout);
-  </script>
 
 
 </body></html>
