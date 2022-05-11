@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<!-- saved from url=(0069)https://casa-group10-project.appspot.com/economic_activity/EAgap.html -->
+<html style=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>EAgap</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <script src="./EAgap_files/mapbox-gl.js.下载"></script>
+    <link href="./EAgap_files/mapbox-gl.css" rel="stylesheet">
+    <link href="./EAgap_files/css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="./London, 100 Years Apart_files/materialize.min.css" media="screen,projection">
+    <link type="text/css" rel="stylesheet" href="./London, 100 Years Apart_files/style(2).css" media="screen,projection">
+
+
+    <link href="./EAgap_files/icon" rel="stylesheet">
+    <script src="./EAgap_files/jquery.min.js.下载"></script>
+
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="./EAgap_files/materialize.min.css" media="screen,projection">
+    <link href="./EAgap_files/css" rel="stylesheet">
+    <script type="text/javascript" src="./EAgap_files/materialize.min.js.下载"></script>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
+<style>
+
+body {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    font-family: 'Titillium Web', sans-serif !important;
+}
+
+
+
+
+
+.map-overlay {
+    position: absolute;
+    overflow: visible;
+    border-radius: 3px;
+    z-index: 4;
+}
+
+
+
+#map-overlay1 {
+    font: 16px/25px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    background-color: #fff;
+    opacity: 0.8;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.10);
+    border-radius: 3px;
+    width: 20%;
+    top: 50%;
+    margin-bottom: 30px;
+    left: 70px;
+    padding: 10px;
+    display: none;
+}
+    
+#legend {
+    font-family: 'Titillium Web', sans-serif !important;
+
+    font: 12px/25px;
+    bottom: 40px;
+    right: 20px;
+    margin-bottom: 50px;
+    margin-right: 30px;
+    width: 200px;
+    height: 150px;
+    line-height: 13px;
+    color: white;
+}
+
+
+
+.legend-key {
+    display: inline-block;
+    width: 2vw;
+    height: 1vw;
+    margin-right: 8px;
+    margin-top: 10px;
+}
+
+.plegend {
+    font-size: 1vw;
+    margin: 0;
+}
+
+
+h2 {
+    font-family: 'Titillium Web', sans-serif !important;
+    font-size: 2.3vw;
+    color: black;
+    font-weight: normal;
+    background-color: rgba(255,255,255,0.5);
+    padding: 5px 10px;}
+
+#menu1 { 
+        background: white;
+        position: absolute;
+        z-index: 1;
+        bottom: 10px;
+        margin-bottom: 30px;
+        margin-right: 10px;
+        left: 10px;
+        border-radius: 3px;
+        width: 350px;
+        border: 1px solid rgba(0,0,0,0.4);
+        font-size: 10px;
+        padding: 0 10px;
+    }
+
+    #menu1 a {  
+        color: #404040;
+        display: block;
+        margin: 0;
+        padding: 0;
+        padding: 6px;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(0,0,0,0.25);
+        text-align: center;
+    } 
+
+    #menu1 a.active {
+        background-color: rgba(0, 0, 0, 0.6);
+        color: white;
+        padding: 6px;
+     }
+
+
+</style></head>
+
+    
+  
+    
+<body>
+    <script src="https://cdn.plot.ly/plotly-1.2.0.min.js"></script>
+
+    <ul id="menu">
+        <li data-menuanchor="page1" class=""><a href=></a></li>
+        <li data-menuanchor="page2" class=""><a href=></a></li>
+        <li data-menuanchor="page3" class="active"><a href='EAgaptest.html'></a></li>
+        <li data-menuanchor="page4" class=""><a href='./London, 100 Years Apart_files/part3_new.html'></a></li>
+        <li data-menuanchor="page5" class=""><a href=></a></li>
+        <li data-menuanchor="page6"><a href=></a></li>
+        <li data-menuanchor="page7"><a href=></a></li>
+
+    </ul>
+
+    <div id="map" class="mapboxgl-map"><div class="mapboxgl-canary" style="visibility: hidden;"></div><div class="mapboxgl-canvas-container mapboxgl-interactive mapboxgl-touch-drag-pan mapboxgl-touch-zoom-rotate"><canvas class="mapboxgl-canvas" tabindex="0" aria-label="Map" width="1920" height="832" style="position: absolute; width: 1536px; height: 666px; cursor: pointer;"></canvas></div><div class="mapboxgl-control-container"><div class="mapboxgl-ctrl-top-left"></div><div class="mapboxgl-ctrl-top-right"></div><div class="mapboxgl-ctrl-bottom-left"><div class="mapboxgl-ctrl" style="display: block;"><a class="mapboxgl-ctrl-logo" target="_blank" rel="noopener" href="https://www.mapbox.com/" aria-label="Mapbox logo"></a></div></div><div class="mapboxgl-ctrl-bottom-right"><div class="mapboxgl-ctrl mapboxgl-ctrl-attrib"><div class="mapboxgl-ctrl-attrib-inner"><a href="https://www.mapbox.com/about/maps/" target="_blank" title="Mapbox" aria-label="Mapbox" role="listitem">© Mapbox</a> <a href="https://www.openstreetmap.org/about/" target="_blank" title="OpenStreetMap" aria-label="OpenStreetMap" role="listitem">© OpenStreetMap</a> <a class="mapbox-improve-map" href="https://apps.mapbox.com/feedback/?owner=zsm014&amp;id=cjvwi5eff53mu1cobh4xub68n&amp;access_token=pk.eyJ1IjoienNtMDE0IiwiYSI6ImNqdDFza3dhdjBobjQ0NHA3YndnNWs1dmQifQ.6l_y5N1P3Uk6Y07K-9_Irw" target="_blank" title="Improve this map" aria-label="Improve this map" role="listitem" rel="noopener">Improve this map</a></div></div></div></div><div class="mapboxgl-popup mapboxgl-popup-anchor-bottom" style="max-width: 240px; transform: translate(-50%, -100%) translate(736px, 502px);"><div class="mapboxgl-popup-tip"></div><div class="mapboxgl-popup-content">Sutton</div></div></div>
+     <!--LEGEND & INFO OVERLAY-->
+    <div class="map-overlay top">
+    <div class="map-overlay-inner" style="margin-left:20px;">
+        <h2>CO2 Emission in 2019</h2>
+    </div>
+</div>
+    <div class="map-overlay" id="legend">
+        <div class="plegend"> Total CO2 emission (t) <br></div>
+        <div>
+            <span class="legend-key" style="background-color: hsl(210, 98%, 14%);"></span>
+            <span class="plegend">8.6</span></div>
+        <div>
+            <span class="legend-key" style="background-color: hsl(193, 60%, 23%);"></span>
+            <span class="plegend">471.4</span></div>
+        <div>
+            <span class="legend-key" style="background-color: hsl(171, 43%, 39%);"></span>
+            <span class="plegend">640.9</span></div>
+        <div>
+            <span class="legend-key" style="background-color: hsl(164, 42%, 64%);"></span>
+            <span class="plegend">828</span></div>
+        <div>
+            <span class="legend-key" style="background-color: hsl(62, 24%, 82%);"></span>
+            <span class="plegend">1158</span></div>
+        <div>
+            <span class="legend-key" style="background-color: hsl(26, 41%, 75%);"></span>
+            <span class="plegend">7165.5</span></div>
+    </div>
+        
+    <div class="map-overlay" id="map-overlay1" style="display: block;"><strong></strong> <div></div> <div></div> <div></div></div>
+    <!-- <div class="map-overlay" id="menu1">
+        <div class="select-wrapper"><input class="select-dropdown dropdown-trigger" type="text" readonly="true" data-target="select-options-0831e0a7-1c6a-a26e-11e2-ffd42c9e8753"><ul id="select-options-0831e0a7-1c6a-a26e-11e2-ffd42c9e8753" class="dropdown-content select-dropdown" tabindex="0"><li id="select-options-0831e0a7-1c6a-a26e-11e2-ffd42c9e87530" tabindex="0" class="selected"><span>All Gender Gap</span></li><li id="select-options-0831e0a7-1c6a-a26e-11e2-ffd42c9e87531" tabindex="0"><span>Female Gap</span></li><li id="select-options-0831e0a7-1c6a-a26e-11e2-ffd42c9e87532" tabindex="0"><span>Male Gap</span></li></ul><svg class="caret" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg><select id="slideselect" tabindex="-1">
+                <option value="1" selected="">per capita</option>
+                <option value="2">total</option>
+                <option value="3">pop</option>
+        </select></div>    
+    </div> -->
+    
+    <div id="myDiv" style="position: absolute; top: 150px; margin-top: 50px;
+    left: 50px; min-width: 400px; height: 150px; max-width: 200px; border-radius: 3px;margin: 0 auto; background-color:rgba(143, 102, 102, 0)">
+        <canvas id="subchart2" height="200" width="500" style="display: block; height: 250px; width: 500px;"></canvas>
+    
+    </div>
+
+    <div class="flourish-embed flourish-bar-chart-race" data-src="visualisation/9933634" style="position: absolute; top: 30px; margin-top: 50px;
+    right: 100px;height: 150px;width: 500px; border-radius: 3px;margin: 0 auto; background-color:white;">
+        <script src="https://public.flourish.studio/resources/embed.js"></script>
+    </div>
+
+    <!-- <div id="tester" style="position: absolute; top: 30px; margin-top: 50px;
+    right: 100px; min-width: 400px; height: 150px; max-width: 200px; border-radius: 3px;margin: 0 auto; background-color:white;">
+        <canvas id="subchart2" height="200" width="500" style="display: block; height: 250px; width: 500px;"></canvas>
+    
+    </div> -->
+
+    
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoiemhpcGVuZzIwMjEiLCJhIjoiY2t2cm1sN3EwMnYxNTJvdGswMXVpcWQ0NCJ9.sN1euR7JRyIFr7vU7j70dw';//pk.eyJ1IjoiemhpcGVuZzIwMjEiLCJhIjoiY2t2cm1sN3EwMnYxNTJvdGswMXVpcWQ0NCJ9.sN1euR7JRyIFr7vU7j70dw
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/zhipeng2021/cl31ef590000f15pbxnacwbxy',// 'mapbox://styles/zhipeng2021/cl1zbxdfn004d14jxzj0ob8it' 
+    center: [-1.1, 54.5],
+    zoom:5
+});
+
+var overlay = document.getElementById('map-overlay1');
+
+
+
+// Create a popup, but don't add it to the map yet.
+var popup = new mapboxgl.Popup({
+    closeButton: false
+});
+
+// var layers = ['10', '9', '7.2'];
+// var colors = ['#ff0000', '#fff200', '#1e9600'];
+//     //create legend
+//     for (i = 0; i < layers.length; i++) {
+//         var layer = layers[i];
+//         var color = colors[i];
+//         var item = document.createElement('div');
+//         var key = document.createElement('span');
+//         key.className = 'legend-key';
+//         key.style.backgroundColor = color;
+
+//         var value = document.createElement('span');
+//         value.innerHTML = layer;
+//         value.className = 'plegend';
+
+//         item.appendChild(key);
+//         item.appendChild(value);
+//         legend.appendChild(item);
+//     }
+
+
+var toggleableLayerIds = [ 'per capita','total','pop'];
+
+
+var toggleableLayerIdDict = 
+{
+    1: 'per capita',
+    2:'total',
+    3:'pop', 
+};    
+
+
+
+map.on('load', function() {
+    map.addSource('gapmap', {
+        "type": "vector",
+        "url": "mapbox://zhipeng2021.7l63r51n"//    mapbox://zsm014.5f72rm2r
+    });
+    
+    map.addLayer({
+        "id": "gapmap",
+        "type": "fill",
+        "source": "gapmap",
+        "source-layer": "LA_2year_changing_cluster_all-0acyz3",
+        "paint": {
+            "fill-outline-color": "rgba(0,0,0,1)",
+            "fill-color": "rgba(0,0,0,0.1)"
+        }
+    }); 
+    
+    map.addLayer({
+        "id": "highlighted",
+        "type": "line",
+        "source": "gapmap",
+        "source-layer": "LA_2year_changing_cluster_all-0acyz3",
+        "paint": {   
+            
+
+
+
+            "line-color": "white",
+            "line-opacity": 1,
+            "line-width": 2
+        },
+        "filter": ["in", "LAD21NM", ""]
+    });
+
+    var newKey = 1;
+    var onLayer = toggleableLayerIdDict[newKey];
+    var offList = Object.values(toggleableLayerIdDict).filter((e)=>{return e!=onLayer});
+
+    offList.forEach((e)=>{
+        map.setLayoutProperty(e, 'visibility', 'none');
+    })
+
+    map.setLayoutProperty(onLayer, 'visibility', 'visible');    
+ 
+    map.on('mousemove', 'gapmap', function(e) {
+        // Change the cursor style as a UI indicator.
+        map.getCanvas().style.cursor = 'pointer';
+        var feature = e.features[0];
+        overlay.innerHTML = '';
+
+        var title = document.createElement('strong');
+        title.textContent = 'Area: ' + feature.properties.LAD21NM;
+
+        var employed = document.createElement('div');
+        employed.textContent = 'commercial: ' + feature.properties.commercial;
+        var agri_fores = document.createElement('div');
+        agri_fores.textContent = 'domestic: ' + feature.properties.domestic;
+        var energy_wat = document.createElement('div');
+        energy_wat.textContent = 'transport: ' + feature.properties.transport;
+        var mining_man = document.createElement('div');
+        mining_man.textContent = 'public: ' + feature.properties.public;
+        var constructi = document.createElement('div');
+        constructi.textContent = 'LULUCF: ' + feature.properties.LULUCF;
+        var distributi = document.createElement('div');
+        distributi.textContent = 'Industy: ' + feature.properties.Industy;
+
+        var data = [
+            {
+              x: ['commercial', 'domestic', 'transport','public','LULUCF','Industy'],
+              y: [feature.properties.commercial, feature.properties.domestic, feature.properties.transport,feature.properties.public,feature.properties.LULUCF,feature.properties.Industy],
+              type: 'bar',
+              marker: {
+    color: 'rgb(250,124,195)'
+  }
+            }
+          ];
+
+          var layout = {
+//         title: 'Total Emission Time Series Example',
+
+        
+//         top:15,
+        width:400,
+        height:200,
+        paper_bgcolor:'rgba(0,0,0,0)',
+  plot_bgcolor:'rgba(0,0,0,0)',
+
+        font:{
+            size:12,
+            color:'white',
+          },
+        
+        xaxis: {
+//           title: 'Year',
+          showgrid: false,
+          //zeroline: false,
+          //showline: true,
+          linecolor:"white",
+          gridwidth:0.5
+        },
+        yaxis: {
+          title: 'CO2 Emission (t)',
+          //showline: true,
+          linecolor:"white"
+         
+          
+    
+        },
+        legend:{
+          yref:'paper',
+          font:{
+            size:12,
+            color:'white'
+          }
+        },
+        margin: {t: 0}
+      };
+
+
+
+        Plotly.newPlot('myDiv', data,layout);
+
+
+
+
+
+       
+        
+        overlay.appendChild(title);
+        overlay.appendChild(employed);
+        overlay.appendChild(agri_fores);
+        overlay.appendChild(energy_wat);
+        overlay.appendChild(mining_man);
+        overlay.appendChild(constructi);
+        overlay.appendChild(distributi);
+        // overlay1.appendChild(transport_);
+        // overlay1.appendChild(banking_fi);
+        // overlay1.appendChild(other);
+        overlay.style.display = 'block';
+
+       
+        
+        
+
+        // Add features that share the same county name to the highlighted layer.
+        map.setFilter('highlighted', ['in', 'LAD21NM', feature.properties.LAD21NM]);
+
+        // Display a popup with the name of the county
+       popup.setLngLat(e.lngLat)
+            .setText(feature.properties.LAD21NM)
+            .addTo(map);
+    });
+
+    map.on('mouseleave', 'gapmap', function() {
+        map.getCanvas().style.cursor = '';
+        popup.remove();
+        map.setFilter('highlighted', ['in', 'LAD21NM', '']);
+        overlay.style.display = 'none';
+    });
+});    
+
+$(document).ready(function(){
+    $('#slideselect').formSelect();
+});
+
+$("#slideselect").on('change', function() {
+    var newKey = $(this).val()
+    var onLayer = toggleableLayerIdDict[newKey];
+    var offList = Object.values(toggleableLayerIdDict).filter((e)=>{return e!=onLayer});
+
+    offList.forEach((e)=>{
+        map.setLayoutProperty(e, 'visibility', 'none');
+    })
+
+    map.setLayoutProperty(onLayer, 'visibility', 'visible');
+})
+
+
+</script>
+
+
+
+<script>
+    
+  </script>
+
+
+</body></html>
