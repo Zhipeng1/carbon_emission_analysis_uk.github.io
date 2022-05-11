@@ -323,8 +323,8 @@ bmap.on('load', function() {
 
         
 //         top:15,
-        width:300,
-        height:150,
+        width:350,
+        height:180,
         paper_bgcolor:'rgba(0,0,0,0)',
   plot_bgcolor:'rgba(0,0,0,0)',
 
