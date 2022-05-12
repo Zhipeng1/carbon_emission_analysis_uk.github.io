@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>page 4 region characteristic</title>
+
+
+<script src="../EAgap_files/mapbox-gl.js.下载"></script>
+    <link href="../EAgap_files/mapbox-gl.css" rel="stylesheet">
+    <link href="../EAgap_files/css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="../London, 100 Years Apart_files/materialize.min.css" media="screen,projection">
+    <link type="text/css" rel="stylesheet" href="../London, 100 Years Apart_files/style(2).css" media="screen,projection">
+
+
+    <link href="../EAgap_files/icon" rel="stylesheet">
+    <script src="../EAgap_files/jquery.min.js.下载"></script>
+
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="../EAgap_files/materialize.min.css" media="screen,projection">
+    <link href="../EAgap_files/css" rel="stylesheet">
+    <script type="text/javascript" src="../EAgap_files/materialize.min.js.下载"></script>
+
+
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js"></script>
+<script type="text/javascript" src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
+<script type="text/javascript">
+function initViz() {
+    var containerDiv1 = document.getElementById("vizContainer1"),
+      url1 = "https://prod-uk-a.online.tableau.com/t/michaelyifanq990701/views/region/Sheet1?:showAppBanner=false&:display_count=n&:showVizHome=n&:origin=viz_share_link",
+      options1 = {
+        hideTabs: true,
+        onFirstInteractive: function () {
+          console.log("Run this code when the viz has finished loading.");
+        }
+      };
+
+    var containerDiv2 = document.getElementById("vizContainer2"),
+      url2 = "https://prod-uk-a.online.tableau.com/t/michaelyifanq990701/views/bubble/Sheet1?:showAppBanner=false&:display_count=n&:showVizHome=n&:origin=viz_share_link",
+      options2 = {
+        hideTabs: true,
+        onFirstInteractive: function () {
+          console.log("Run this code when the viz has finished loading.");
+        }
+      };
+
+  // Create a viz object and embed it in the container div.
+  var viz1 = new tableau.Viz(containerDiv1, url1, options1);
+  var viz2 = new tableau.Viz(containerDiv2, url2, options2);
+}
+</script>
+
+<style>
+  body { margin: 0; padding: 0; }
+  #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+
+
+  #menu1 {
+  position: absolute ;
+  top: 30%;
+  right: 5px;
+  height: 10px;
+  width: 50px;
+  z-index: 70;
+  padding: 0;
+  margin: 0;
+}
+
+#menu1 li {
+  display: block;
+  float: right;
+  margin: 5px;
+  width: 1.5vw;
+  height: 1.5vw;
+  background: rgba(191,191,191, 0.5);
+  border-radius: 0.75vw;
+}
+
+#menu1 > li > a {
+  display: block;
+  float: right;
+  width: 1.5vw;
+  height: 1.5vw;
+  background: rgba(191,191,191, 0.5);
+  border-radius: 0.75vw;
+}
+
+
+#menu1 li.active {
+  background: #666;
+  background: rgb(255, 0, 0);
+  color: #fff;
+}
+
+h2 {
+    font-family: 'Titillium Web', sans-serif !important;
+    font-size: 2.3vw;
+    color: black;
+    font-weight: normal;
+    background-color: rgba(255,255,255,0.5);
+    padding: 5px 10px;}
+  </style>
+
+</head>
+
+<body onload="initViz();">
+
+  <div id="map"></div>
+  
+  <script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoibWljaGFlbHlpZmFucSIsImEiOiJjbDFzN3B1MmIyNXd1M2pqeDNqb2UzM3dwIn0.lmuI5HRRGb7Bh4gRQlv4Zg';
+    const map = new mapboxgl.Map({
+      container: 'map', // container ID
+      style: 'mapbox://styles/michaelyifanq/cl2vqi7g0003e14mz0yrffsug', // style URL
+      center: [6, 54],
+      zoom:4.45
+    });
+  
+
+    map.on('load', function() {
+    map.addSource('gapmap', {
+        "type": "vector",
+        "url": "mapbox://michaelyifanq.dvklata9"//    mapbox://zsm014.5f72rm2r
+    });
+    
+    map.addLayer({
+        "id": "gapmap",
+        "type": "fill",
+        "source": "gapmap",
+        "source-layer": "Region_percapita-0ty8h7",
+        "paint": {
+            "fill-outline-color": "rgba(166, 166, 166, 0.1)",
+            "fill-color": "rgba(0, 0, 0, 0.001)"
+        }
+    }); 
+    
+    map.addLayer({
+        "id": "highlighted",
+        "type": "line",
+        "source": "gapmap",
+        "source-layer": "Region_percapita-0ty8h7",
+        "paint": {   
+            "line-color": "white",
+            "line-opacity": 1,
+            "line-width": 2
+        },
+        "filter": ["in", "OBJECTID", ""]
+    });
+  });
+
+  </script>
+
+<div class="map-overlay top">
+  <div class="map-overlay-inner" style="margin-left:20px;">
+      <h2>CO2 Emission decrease from 2005 to 2019</h2>
+  </div>
+</div>
+
+
+  <img src="CDR1.svg" style="width:500px;height:400px;position: absolute;right:0px;top: 0px;">
+  <!-- <div id="vizContainer1" style="width:350px; height:350px;position: absolute;right:1px;top: 1px;background-color: rgba(255, 255, 255,0.0001)"></div> -->
+  <!-- <img src="CDR2.svg" style="width:650px;height:325px;position: absolute;right:0px;bottom: 20px;">
+ -->
+ <div id="vizContainer2" style="width:400px; height:250px;position: absolute;right:10px;bottom: 1px;background-color: rgba(255, 255, 255, 0.0001)"></div>
+
+ <ul id="menu1">
+  <li data-menuanchor="page1" class=""><a href='first_page.html'></a></li>
+  <li data-menuanchor="page2" class=""><a href='second_page.html'></a></li>
+  <li data-menuanchor="page3" class=""><a href='third_page.html'></a></li>
+  <li data-menuanchor="page4" class="active"><a href='region.html'></a></li>
+  <li data-menuanchor="page5" class=""><a href=></a></li>
+  <li data-menuanchor="page6" class=""><a href='../index.html'></a></li>
+  <li data-menuanchor="page7" class=""><a href='../London, 100 Years Apart_files/part3_new.html''></a></li>
+  <li data-menuanchor="page8" class=""><a href=></a></li>
+  <li data-menuanchor="page9" class=""><a href=></a></li>
+
+</ul>
+
+</body>
+
+</html>
